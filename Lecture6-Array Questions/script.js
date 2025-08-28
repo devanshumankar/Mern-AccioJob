@@ -43,7 +43,7 @@
 
 
 //rotations in array;
-let array=[10,20,30,40,50];
+//let array=[10,20,30,40,50];
 
 
 //rotate right by 1 - 50 10 20 30 40
@@ -72,5 +72,50 @@ function rotateLeft(array){
 
 //Note - Never Change Future element that we are going to use
 /*
-    rotate clockwise and anticlockwise 
+    rotate clockwise and anticlockwise by k
+    insert at end insert at start
+    pop push rotate by 1
 */
+
+function rotateAntiClockWise(array,k){
+    k=k%array.length;
+    let temp=[];
+    for(let i=0;i<k;i++){
+        temp.push(array[i]);
+    }
+    for(let i=k;i<array.length;i++){
+        array[i-k]=array[i];
+    }
+    let j=0;
+    for(let i=array.length-k;i<array.length;i++){
+        array[i]=temp[j];
+        j++;
+    }
+    console.log(array);
+
+    // t- 0(n)+0(n)+0(n)
+    // s- 0(n)
+}
+let array=[1,2,3,4,5];
+let k=2;
+// rotateAntiClockWise(array,k);
+
+
+function rotateClockWise(array,k){
+    let temp=[];
+    for(let i=array.length-k;i<array.length;i++){
+        temp.push(array[i]);
+    }
+    
+    for(let i=array.length-1;i>=k;i--){
+        array[i]=array[i-k];
+    }
+    for(let i=0;i<k;i++){
+        array[i]=temp[i];
+    }
+    console.log(array)
+    // s-0(n) t-0(n)+0(n)+0(n)
+}
+// rotateClockWise(array,2);
+
+
