@@ -82,16 +82,17 @@ const portfolio = {
   name: "Piyush",
   skills: ["Javascript", "HTML", "CSS"],
   showSkills: function showSkills () {
-    let allSkills = "";
+    let str="";
     for(let skill of this.skills)
-      allSkills += skill + ", ";
-    console.log(allSkills);
+      str+=skill+ ", ";
+    console.log(str);
   },
   addSkills: function addSkills(skill){
     this.skills.push(skill);
+    
   }
 }
 
 portfolio.showSkills();
-portfolio.addSkills("React");
+portfolio.addSkills("Angular");
 portfolio.showSkills();
