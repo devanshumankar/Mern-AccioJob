@@ -164,7 +164,7 @@ for(let i=0;i<array.length;i++){
 }
 console.log({firstIndexOf6,lastIndexOf6})
 
-//using binary search -0(logN)
+//using binary search - 0(logN)
 
 
 
