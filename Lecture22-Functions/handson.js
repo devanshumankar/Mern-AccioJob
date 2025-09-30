@@ -48,6 +48,7 @@ let obj={
 */
 
 /*
+
 1.forEach
 -works like loop
 -does not return anything
@@ -61,8 +62,8 @@ let array=[1,2,3,4,5];
 // })
 
 /*
-2.Map
 
+2.Map
 -return array
 -used for transforming array
 -goes to each element and do the operation
@@ -76,6 +77,7 @@ let double=array.map((ele)=>{
 // console.log(double)
 
 /*
+
 3.filter
 -return array
 -used for conditinal  based array filtering
