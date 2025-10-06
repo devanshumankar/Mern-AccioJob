@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Semantic Tags : They are used for showing extra meaning to content in the page -->
+    <!-- 1.Header
+          2.Footer
+          3.main
+          4.nav
+          5.section
+     -->
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#unlist">Unorder List</a>
+            <a href="#ollist">Order List</a>
+            <a href="#listgrp">listGrouping</a>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <section id="home">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus dolorem amet non impedit.
+                Quisquam quidem aut delectus,
+                sed incidunt non magni unde culpa rerum suscipit vero. Non rem reprehenderit at?
+            </p>
+        </section>
+        <hr>
+        <section id="unlist">
+            <h1>Unordered List</h1>
+            <ul>
+                <li>Devanshu</li>
+                <li>Rajesh</li>
+                <li>Shree</li>
+                <li>Mohan</li>
+            </ul>
+        </section>
+        <hr>
+        <section id="ollist">
+            <h1>Ordered List</h1>
+            <!-- Default Starts with number -->
+            <!-- Types : 1,i,I,a,A -->
+
+            <h2>List With Numbers</h2>
+            <ol>
+                <li>Devanshu</li>
+                <li>Rajesh</li>
+                <li>Shree</li>
+                <li>Mohan</li>
+            </ol>
+            <h2>List With Alphabets (Capital)</h2>
+
+            <ol type="A">
+                <li>Devanshu</li>
+                <li>Rajesh</li>
+                <li>Shree</li>
+                <li>Mohan</li>
+            </ol>
+
+            <h2>List With Alphabets (Small)</h2>
+            <ol type="a">
+                <li>Devanshu</li>
+                <li>Rajesh</li>
+                <li>Shree</li>
+                <li>Mohan</li>
+            </ol>
+
+            <h2>List With roman (i) but in reverse Order</h2>
+            <ol type="i" reversed>
+                <li>Devanshu</li>
+                <li>Rajesh</li>
+                <li>Shree</li>
+                <li>Mohan</li>
+            </ol>
+
+            <h2>List With roman (I)</h2>
+            <ol type="I">
+                <li>Devanshu</li>
+                <li>Rajesh</li>
+                <li>Shree</li>
+                <li>Mohan</li>
+            </ol>
+        </section>
+        <hr>
+        <section id="listgrp">
+            <h1>List Grouping</h1>
+            <ol>
+                <li>
+                    <p>Pune</p>
+                    <ol type="a">
+                        <li value="27">Kharadi</li>
+                        <li>Baner</li>
+                        <li>VimanNagar</li>
+                    </ol>
+                </li>
+                <li>Mumbai</li>
+                <li>Nagpur</li>
+                <li>Delhi</li>
+            </ol>
+        </section>
+    </main>
+    <hr>
+    <footer>
+        <p>@copyright by Devanshu</p>
+    </footer>
+</body>
+
+</html>
