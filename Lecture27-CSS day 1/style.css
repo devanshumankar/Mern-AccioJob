@@ -1,0 +1,85 @@
+/* universal selector *: select all elements and then
+ we can set properties to them 
+*/
+
+
+
+/* syntax 
+
+    selector{
+        property:value
+    }
+*/
+
+/* Color Property*/
+* {
+    color: green;
+    /* we can add differnt font styles to page using this this first take arial if not then next and so on*/
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    /* rgb  */
+    color: rgb(13, 200, 255);
+}
+
+p {
+    /* 0.2 is alpha which helps in setting transperency  alpha max value 1*/
+    color: rgba(13, 200, 255, 0.6);
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    /* left right justify center*/
+}
+
+h2 {
+    /* color is applied using hex code  #rrggbb*/
+    color: #942449;
+    text-decoration: underline;
+    /* line-through overline underline none*/
+}
+
+a {
+    /* removes the underline */
+    text-decoration: none;
+    text-transform: lowercase;
+    /* uppercase lowercase  capitalize */
+}
+
+#p1 {
+    text-align: left;
+    line-height: 40px;
+    /* add height to the single line */
+}
+
+/* units 
+    1.px:pixels (fixed)
+    2.%:percentage(wrt parent)
+    3.em:relative to parent font size
+    4.rem:relative to root font size
+    5.vh/vw-relatve to viewport height/width
+*/
+
+.myname {
+    background-color: yellow;
+    border: solid 2px black;
+    text-align: justify;
+    padding: 50px;
+}
+/* padding 
+
+    padding: 50px;left,right top and bottom
+
+    padding: 50px 100px;top & bottom 50px left right:100px
+
+    padding: 50px 100px 150px;t=50 l&r=100 b=150
+
+    padding:50px 100px 0px 30px;t=50 r=100 b=0 l=30
+*/
+/* Same to margin */
+
+/* display property
+    inline:
+    block:full witdth
+    inline:block->
+*/

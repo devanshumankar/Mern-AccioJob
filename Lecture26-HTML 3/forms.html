@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Enter Full Name" name="name" required autocomplete="name"><br><br>
+
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" placeholder="Enter your Mail" required autocomplete="email"><br><br>
+
+        <label for="phone">Phone</label>
+        <input id="phone" type="tel" name="phone" placeholder="Enter Without Country Code" required autocomplete="tel"
+            maxlength="10"><br><br>
+
+        <label for="birth">DOB</label>
+        <input type="date" id="birth" name="birth" placeholder="Enter DOB"><br><br>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter Password"><br><br>
+
+        <label for="Resume">Upload Resume</label>
+        <input type="file" id="Resume" name="Resume"><br><br>
+
+        <label for="grad-year">Graduation Year</label>
+        <select name="grad-year" id="grad-year">
+            <option value="">Select Year</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+        </select><br><br>
+
+        <label for="city">City</label>
+        <select name="city" id="city" multiple size="2">
+            <option value="">Select city</option>
+            <option>Mumbai</option>
+            <option>Pune</option>
+            <option>Chennai</option>
+            <option>Delhi</option>
+            <option>Wardha</option>
+            <option>Nagpur</option>
+            <option>Kolkata</option>
+        </select><br><br>
+
+        <div>
+            <h2>List of Fruits</h2>
+            <p data-fruit-id="mango" id="mango" data-price="10">Mango<span>10</span></p>
+            <p data-fruit-id="apple" data-price="20">Apple<span>20</span></p>
+            <p data-fruit-id="mango" data-price="30">Orange<span>30</span></p>
+        </div>
+
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        let mango = document.getElementById("mango");
+        console.log(mango.dataset)
+        console.log(mango.dataset.price)
+    </script>
+</body>
+
+</html>

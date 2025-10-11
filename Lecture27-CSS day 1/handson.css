@@ -1,0 +1,88 @@
+#div1 {
+    background-color: burlywood;
+}
+
+/* color property */
+.div2 {
+    /* 1st way */
+    color: red;
+
+    /* 2nd way */
+    color: rgb(23, 139, 16);
+
+    /* 3rd way 0.6 is aplha it can max be 1 and represent the tranparency*/
+    color: rgba(23, 139, 16, 0.3);
+}
+
+/* padding : area between content and border*/
+.div3 h1 {
+    background-color: blue;
+    color: aliceblue;
+    /* t r b and l have 20px padding */
+    padding: 20px;
+
+}
+
+.div3 h2 {
+    background-color: blue;
+    color: aliceblue;
+    /* t , b ==20px && l , r = 40px  padding */
+    padding: 20px 40px;
+
+    /* add lines in middle of text */
+    text-decoration: line-through;
+
+    /* convert text to capitalize form like Devan */
+    text-transform: capitalize;
+
+}
+
+.div3 h3 {
+    background-color: blue;
+    color: aliceblue;
+    /* t =20px r=40px , b=40px l=40px padding */
+    padding: 20px 40px 50px;
+
+    /* add lines  over the text */
+    text-decoration: overline;
+
+    /* convert text to uppercase */
+    text-transform: uppercase;
+}
+
+.div3 h4 {
+    background-color: blue;
+    color: aliceblue;
+    /* t=20px r=40px , b=40px l=50px padding */
+    padding: 20px 40px 40px 50px;
+
+    /* add lines  under the text */
+    text-decoration: underline;
+
+    /* convert text to lowercase */
+    text-transform: lowercase;
+
+}
+
+.div4 {
+    text-align: left;
+    background-color: chocolate;
+    height: 100px;
+    border: solid 3px green;
+}
+
+.div4 p {
+    color: beige;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.div5 p {
+    text-align: center;
+    line-height: 40px;
+}
+
+.div6 p {
+    text-align: justify;
+}
