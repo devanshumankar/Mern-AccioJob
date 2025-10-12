@@ -65,3 +65,4 @@ function subarrrayWithSizeK(array,k){
     console.log(result);
 }
 // subarrrayWithSizeK([1, 2, -3, 0, 1, -1, 1],3)
+// array questions

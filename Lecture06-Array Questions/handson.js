@@ -60,3 +60,4 @@ for(let i=1;i<array.length;i++){
 }
 array[array.length-1]=temp1;
 console.log(array);
+// array questions
