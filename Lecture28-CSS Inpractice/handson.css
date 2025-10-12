@@ -1,0 +1,76 @@
+.container {
+    height: 800px;
+    width: 500px;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    /* along main axis ie row for this */
+    justify-content: center;
+
+    /* along cross-axis which is not main */
+    align-items: center;
+
+}
+
+.box {
+    height: 200px;
+    width: 200px;
+    border: solid 1px white;
+}
+
+
+
+.a {
+    background-color: red;
+
+}
+
+.b {
+    background-color: blue;
+}
+
+.c {
+    /* Initiall width is 800 px i.e before applying flex */
+
+    /* but if you want to display the content that is outside the flex container */
+
+    /* then you need to shrink the flex and provide flex-basis how much you should allow (min) */
+
+    /* flex :flex-grow flex-shrink  flex-basis; */
+
+    flex: 0 1 400px;
+
+    height: 300px;
+
+    width: 800px;
+
+    background-color: yellow;
+}
+
+.d {
+    flex: 0 1 200px;
+
+    height: 400px;
+    background-color: green;
+}
+
+.sun {
+    background-color: yellow;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+
+    /* right bottom */
+    /* box-shadow: 4px 4px red; */
+
+     /* left up */
+    /* box-shadow: -4px -4px red; */
+
+    /* 6px means spread radius across all sides */
+
+    box-shadow: 0px 0px 30px 6px red;
+
+}
