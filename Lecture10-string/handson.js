@@ -80,3 +80,4 @@ console.log(str1.trimEnd())
 //trimstart
 console.log(str1.trimStart())
 
+// string
