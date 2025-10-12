@@ -99,3 +99,4 @@ for(let i=0;i<array1.length;i++){
 console.log(ans);
 //t-O(n^2) s-0(1)
 
+// 2d array questions
