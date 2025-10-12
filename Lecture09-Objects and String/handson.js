@@ -72,3 +72,4 @@ let str = "  We're going, to see some methods, of strings W  ";
 
 // console.log(str.toUpperCase())
 
+// object and string
