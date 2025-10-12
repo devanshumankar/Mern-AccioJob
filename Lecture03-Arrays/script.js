@@ -39,5 +39,5 @@
 //         console.log(i,frequencyArray[i])
 //     }
 // }
-
+// Array question handson
 
