@@ -66,3 +66,13 @@
 
 
 // console.log("Real teams: ", iplTeams);
+
+// for of loop
+// for(let ele of iplTeams){
+//     console.log(ele)
+// }
+
+// for in
+// for(let ele in iplTeams){
+//     console.log(ele[i]) //here i="0"and so on
+// }
