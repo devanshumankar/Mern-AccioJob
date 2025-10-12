@@ -174,6 +174,6 @@ let array=[1,2,3];
 // }
 
 
-
+// scope and Nested array
 
 
