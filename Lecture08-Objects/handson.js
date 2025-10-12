@@ -96,3 +96,4 @@ const portfolio = {
 portfolio.showSkills();
 portfolio.addSkills("Angular");
 portfolio.showSkills();
+// object
