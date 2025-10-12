@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="enter name" required><br><br>
+
+        <label for="age">Age</label>
+        <input type="Number" id="age" placeholder="enter age"><br><br>
+
+        <label for="date">Date</label>
+        <input type="date" id="date" required><br><br>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="enter password" required><br><br>
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" placeholder="xxx-xxx-xxxx" required><br><br>
+        <label for="city">City</label>
+        <select id="city">
+            <option value="">--select city--</option>
+            <option>pune</option>
+            <option>mumbai</option>
+            <option>Delhi</option>
+        </select><br><br>
+
+        <label for="language">Language</label>
+        <select id="language" multiple>
+            <option >English</option>
+            <option>Marathi</option>
+            <option>Hindi</option>
+            <option>Bengali</option>
+            <option>Gujrati</option>
+            <option>None of the Above</option>
+        </select><br><br>
+
+        <label for="gender">Gender</label>
+        <input type="radio" name="gender" >Male
+        <input type="radio" name="gender" >Female
+        <input type="radio" name="gender" >Others
+        <br><br>
+
+        <input type="checkbox" required>Agree to TOC<br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <br><br>
+    <caption>Student Marks</caption>
+    <table border="1">
+        <thead>
+            <tr> 
+                <th>Roll no</th>
+                <th>Name</th>
+                <th>Marks</th>
+                <th>P/F</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Devanshu</td>
+                <td>25</td>
+                <td rowspan="2">p</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>Raj</td>
+                <td>30</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>Shree</td>
+                <td>15</td>
+                <td>f</td>
+            </tr>
+        </tbody>
+
+    </table>
+</body>
+</html>
