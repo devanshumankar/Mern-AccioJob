@@ -72,6 +72,12 @@ const teams=["CSK","RCB","SRH","KKR","GT"];
 // }
 // let array=[4,8,3,5]
 // console.log(calculateAverage(array))
+// function fact(n){
+//     if(n==1 || n==0){
+//         return 1;
+//     }
+//     return n*fact(n-1);
+// }
 
 
 
