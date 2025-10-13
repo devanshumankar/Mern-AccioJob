@@ -1,0 +1,96 @@
+.container {
+    height: 80vh;
+    width: 60vw;
+    border: solid 2px rebeccapurple;
+    display: grid;
+    grid-template-columns: 1fr 2.5fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr 1fr;
+
+}
+
+.Header {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    background-color: red;
+    color: white;
+}
+
+.Menu {
+    grid-row: 2/3;
+    background-color: blue;
+    color: white;
+}
+
+.Main {
+    grid-row: 2/4;
+    background-color: green;
+    color: white;
+}
+
+.Ad1 {
+    grid-row: 2/4;
+    background-color: black;
+    color: white;
+}
+
+.Ad2 {
+    background-color: rebeccapurple;
+    color: white;
+}
+
+.Footer {
+    grid-column: 1/4;
+    background-color: orange;
+    color: white;
+}
+
+/* using grid template area */
+.c1 {
+    height: 80vh;
+    width: 60vw;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr 1fr;
+    grid-template-columns: 1fr 2.5fr 1fr;
+    grid-template-areas:
+        "header header header"
+        "menu main ad1"
+        "ad2 main ad1"
+        "footer footer footer";
+
+}
+
+.box1 {
+    grid-area: header;
+    background-color: blue;
+    color: white;
+}
+
+.box2 {
+    grid-area: menu;
+    background-color: red;
+    color: white;
+}
+
+.box3 {
+    grid-area: main;
+    background-color: black;
+    color: white;
+}
+
+.box4 {
+    grid-area: ad1;
+    background-color: green;
+    color: white;
+}
+
+.box5 {
+    grid-area: ad2;
+    background-color: orange;
+    color: white;
+}
+
+.box6 {
+    grid-area: footer;
+    background-color: brown;
+    color: white;
+}
