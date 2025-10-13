@@ -1,0 +1,22 @@
+.container {
+    height: 120vh;
+    width: 40vw;
+    border: solid 2px black;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    padding-left: 40px;
+}
+
+h1 {
+    color: rebeccapurple;
+
+}
+
+p {
+    color: brown;
+}
+
+a {
+    text-decoration: none;
+}
