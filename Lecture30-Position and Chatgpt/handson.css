@@ -1,0 +1,73 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.section1 {
+    background-color: aqua;
+    height: 140vh;
+    width: 100vw;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    padding: 20px;
+}
+
+.section2 {
+    background-color: green;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    margin-left: 100px;
+    border: solid 2px black;
+    /* position: relative; */
+}
+
+.a {
+    background-color: grey;
+    /* This will not affect any element in and it is default */
+    position: static;
+    left: 20px;
+    color: white;
+}
+
+.b {
+    background-color: red;
+    /* this is wrt original position */
+    position: relative;
+    left: 20px;
+    color: white;
+}
+
+.c {
+    /* This is wrt to parent if we dont specify position relative
+    to the parent then it will be a/c to the root
+    */
+    position: absolute;
+    left: 10px;
+    background-color: burlywood;
+    color: white;
+}
+
+.d {
+    /* This will remain fixed across whole page */
+    position: fixed;
+    top: 10px;
+    left: 400px;
+    background-color: blueviolet;
+    color: white;
+}
+
+.e {
+    /* This will remain fixed across parent only */
+    position: sticky;
+    top: 40px;
+    left: 400px;
+    background-color: chartreuse;
+    color: white;
+}
