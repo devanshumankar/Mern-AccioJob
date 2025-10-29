@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.724);
+    color: white;
+    height: 100vh;
+    width: 100vw;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    border-right: 1px solid white;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px solid white;
+    font-size: 1.1rem;
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+#settings {
+    position: fixed;
+    text-align: right;
+    bottom: 20px;
+    left: 20px;
+    width: calc(20% - 40px);
+}
+
+.content {
+    display: grid;
+    grid-template-rows: 1fr 10fr 1.5fr;
+}
+
+
+.suggesions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+
+.suggesion {
+
+    height: 200px;
+    width: 300px;
+    border: solid 1px white;
+    display: grid;
+    place-items: center;
+    overflow: auto;
+    cursor: pointer;
+
+    /* adds scroll bar if more content */
+}
+
+.chat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: solid 1px black;
+}
+
+#plus {
+    height: 40px;
+    width: 45px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border: none;
+    background-color: aliceblue;
+    border-right: solid 1px black;
+    cursor: pointer;
+}
+
+.chat input {
+    height: 40px;
+    width: 50%;
+    background-color: aliceblue;
+    border: none;
+    padding: 10px;
+}
+
+.suggesion:hover {
+    background-color: rgba(0, 0, 0, 0.13);
+
+}
+
+#submit {
+    height: 40px;
+    width: 60px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: aliceblue;
+    border: none;
+    border-left: solid 1px black;
+    cursor: pointer;
+}
+
+.content .title {
+    margin: 0 auto;
+    font-weight: 900;
+    font-size: 2em;
+}

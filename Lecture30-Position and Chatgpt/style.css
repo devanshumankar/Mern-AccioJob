@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.box {
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.inner {
+    background-color: orange;
+    height: 100%;
+}
+
+.static .inner {
+    /* inner will not change the position */
+    position: static;
+    top: 20px;
+}
+
+.relative .inner {
+    position: relative;
+    top: 20px;
+    right: 20px;
+}
+
+.absolute {
+    position: relative;
+}
+
+.absolute .inner {
+    position: absolute;
+    /* This will change acc to .absolute
+        if not specify then a/c to root
+    */
+
+    /* and also will lost the track by html */
+    top: 20px;
+    width: 70px;
+    padding: 30px;
+}
+
+.fixed .inner {
+    position: fixed;
+    top: 30px;
+    height: 40px;
+}
