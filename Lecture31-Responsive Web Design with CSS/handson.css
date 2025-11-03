@@ -1,0 +1,39 @@
+.Border {
+    height: 200px;
+    width: 200px;
+    border: solid 2px black;
+    border-radius: 10px 20px 10px 20px;
+
+    /* TL:10px TR:20px BR:10px BL:20px */
+
+    /* border-radius: 20px 40px; */
+    /* TL-20
+        TR-40
+        BR-20
+        BL-40
+    */
+
+}
+
+p::first-letter {
+    color: red;
+}
+
+.container {
+    height: 400px;
+    width: 800px;
+    display: grid;
+    grid-template-rows: 1fr 4fr 2fr;
+}
+
+.a {
+    background-color: green;
+}
+
+.b {
+    background-color: burlywood;
+}
+
+.c {
+    background-color: brown;
+}
