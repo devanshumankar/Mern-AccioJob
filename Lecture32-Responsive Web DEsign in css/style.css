@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: rgb(165, 208, 246);
+}
+
+main {
+    background-color: beige;
+}
+
+footer {
+
+
+    background-color: green;
+}
+
+.page {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr 2fr;
+
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header .navigation {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 20px;
+
+}
+
+header .navigation a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+header .buttons {
+    gap: 10px;
+}
+
+header .buttons button {
+    height: 30px;
+    width: 60px;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main .container {
+    height: 80%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    border: solid 3px hsl(0, 0%, 0%);
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+main .container .right {
+
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+main .container .right p {
+    text-align: justify;
+}
+
+main .container .left img {
+    margin-top: 15px;
+    margin-left: 20px;
+    height: 90%;
+    width: 70%;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+footer ul li {
+    list-style: none;
+}
+
+@media screen and (max-width:667px) {
+    main .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: fit-content;
+        justify-content: center;
+    }
+
+    main .container .left {
+        display: flex;
+        justify-content: center;
+    }
+
+    main .container .left img {
+        width: 80%;
+    }
+
+    main .right {
+        width: 90%;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    footer div {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        align-items: center;
+
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

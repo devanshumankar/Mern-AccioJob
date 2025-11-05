@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+div>div {
+    background-color: yellow;
+    height: 400px;
+    width: 300px;
+    margin: 100px auto;
+}
+
+div>div:first-child {
+    background-color: red;
+}
+
+div>div:last-child {
+    background-color: green;
+}
+
+p::before {
+    content: "Devanshu";
+}
+
+p::after {
+    content: "Devanshu";
+}
+
+p::first-letter {
+    color: aqua;
+}
+
+p::first-line {
+    color: blue;
+}
+
+div>div:first-child:hover {
+    background-color: green;
+}
+
+div>div:nth-child(2):active {
+    background-color: beige;
+}

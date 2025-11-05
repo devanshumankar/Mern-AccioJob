@@ -1,0 +1,126 @@
+.container {
+    height: 500px;
+    width: 100%;
+    border: solid 1px black;
+    display: flex;
+    justify-content: space-evenly
+}
+
+.container>div {
+    height: 100px;
+    width: 100px;
+    border: solid 1px rebeccapurple;
+
+}
+
+/* <=400 */
+@media screen and (max-width:400px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box {
+        background-color: green;
+    }
+}
+
+/* >=300 */
+@media screen and (min-width:300px) {
+    .box {
+        background-color: red;
+    }
+}
+
+@media screen and (100px<=width<=200px) {
+    .box {
+        background-color: aqua;
+    }
+}
+
+.section1>div {
+    height: 200px;
+    width: 300px;
+}
+
+#linear {
+    /* This will add from top to bottom color */
+
+    /* background: linear-gradient(red, green, orange); */
+
+    /* to right:place the last color to right */
+
+    /* to left:place the last color to left  */
+
+    /* red will take 40% */
+    background: linear-gradient(to left, red 40%, green, orange);
+}
+
+#radial {
+    margin-top: 10px;
+    /* inside to outside in circular form */
+    /* background: radial-gradient(red, white, orange, red); */
+
+    /* closest-side : last color will be visble fully on closest side */
+
+    /* farthest-side : last color will be visble fully on farthest side */
+
+    background: radial-gradient(closest-side, red, white, orange, red);
+
+}
+
+#conic {
+    margin-top: 10px;
+
+    /* background: conic-gradient(red ,blue, black); */
+    /* 0 deg is straight */
+    background: conic-gradient(red 6deg,
+            orange 6deg 18deg,
+            yellow 18deg 45deg,
+            green 45deg 110deg,
+            blue 110deg 200deg,
+            purple 200deg);
+}
+
+#hov:hover {
+    background-color: green;
+}
+
+#clk:active {
+    background-color: brown;
+}
+
+.tree h1:first-child {
+    color: blue;
+}
+
+.tree h1:last-child {
+    color: blueviolet;
+}
+
+.tree h1:nth-child(2) {
+    color: aqua;
+}
+
+.tree h1:nth-of-type(4) {
+    color: antiquewhite;
+}
+
+.pseudo-elements p::before {
+    content: "Devanshu";
+}
+
+.pseudo-elements p::after {
+    content: "Mankar";
+}
+
+.pseudo-elements p::first-letter {
+    content: "";
+    color: red;
+}
+
+.pseudo-elements p::first-line {
+    content: "";
+    color: blue;
+}
