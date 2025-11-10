@@ -1,0 +1,37 @@
+span {
+    display: none;
+}
+
+.animations {
+    margin-top: 20px;
+    height: 200px;
+    width: 200px;
+    background-color: green;
+}
+.animations:hover{
+    animation-name: ani1;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes ani1 {
+    0% {
+        background-color: green;
+    }
+
+    50% {
+        transform: scale(1.2);
+        background-color: yellow;
+    }
+
+    100% {
+        background-color: red;
+    }
+}
+
+.svgs{
+    margin-top: 20px;
+    height: 400px;
+    width: 100vw;
+    border: solid 1px black;
+}
