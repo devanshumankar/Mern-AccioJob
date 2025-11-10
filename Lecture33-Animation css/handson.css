@@ -1,0 +1,87 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 100px;
+}
+
+.container .box {
+    height: 100px;
+    width: 100px;
+    background-color: green;
+    margin-bottom: 50px;
+}
+
+.box:hover {
+    background-color: brown;
+    width: 500px;
+}
+
+.transition {
+    /* on which property of box transition should be apply 
+        box has height,width,margin-botom etc you can select 
+        as much as you can
+        ex->width,heigth ;
+
+        and for selecting all property 
+        we use "all"
+    */
+    transition-property: width;
+    transition-delay: 1s;
+    transition-duration: 5s;
+    /* ease in- starting madhe slow nantar fast*/
+
+    /* ease in-out- starting madhe slow nantar fast ani end madhe slow*/
+    /* ease out-ending madhe slow */
+
+    /* steps(4) -4 steps madhe */
+
+    /* step-end - duration khatam zalya nantar complete*/
+
+    /* step-start-adhi complete mag wait karan  */
+    transition-timing-function: steps(5);
+}
+
+.box1 {
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    margin-left: 40px;
+}
+
+.box1:hover {
+    /*scale(1.2) all directing madhe increase */
+
+    /* transform: scale(1.2); */
+
+    /* 1st is x and 2nd is y axis */
+
+    /* transform: scale(0.4,1.4); */
+
+    /* scaleX,scaleY */
+
+    /* turn is also use insted of deg
+        1turn ==360deg
+   */
+
+    /* transform: rotate(45deg); */
+
+    /* transform: translate(100%); */
+
+    /* transform: translateX(100px); */
+
+    /* transform:translateY(200px) */
+
+    /* here first 200px to right 
+        then it will rotate 90 degree
+        since it is rotated then x asix will get y axis due
+        to 90deg rotation
+    */
+
+    transform:translate(200px) rotate(90deg) translate(200px);
+}
