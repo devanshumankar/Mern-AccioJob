@@ -41,7 +41,8 @@ const eventElement = document.querySelector(".event-container")
 
 eventElement.addEventListener("click", () => {
     eventElement.style.color = "white"
-    eventElement.backgroundColor = "green"
+    eventElement.style.backgroundColor = "green"
+    console.log("click")
 })
 
 eventElement.addEventListener("mouseover", () => {

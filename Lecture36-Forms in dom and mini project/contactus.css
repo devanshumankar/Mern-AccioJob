@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, rgb(20, 25, 22) 0%, rgb(20, 25, 22) 7.692%, rgb(51, 43, 34) 7.692%, rgb(51, 43, 34) 15.385%, rgb(83, 60, 47) 15.385%, rgb(83, 60, 47) 23.077%, rgb(110, 76, 59) 23.077%, rgb(110, 76, 59) 30.769%, rgb(130, 89, 70) 30.769%, rgb(130, 89, 70) 38.462%, rgb(139, 98, 79) 38.462%, rgb(139, 98, 79) 46.154%, rgb(138, 102, 84) 46.154%, rgb(138, 102, 84) 53.846%, rgb(126, 102, 87) 53.846%, rgb(126, 102, 87) 61.538%, rgb(104, 98, 86) 61.538%, rgb(104, 98, 86) 69.231%, rgb(76, 88, 82) 69.231%, rgb(76, 88, 82) 76.923%, rgb(44, 75, 75) 76.923%, rgb(44, 75, 75) 84.615%, rgb(12, 59, 65) 84.615%, rgb(12, 59, 65) 92.308%, rgb(0, 42, 54) 92.308%, rgb(0, 42, 54) 100%);
+
+}
+
+.contact-us {
+    box-shadow: 3px 3px 10px red;
+    height: 70%;
+    width: 40%;
+    border-radius: 30px;
+    border: solid 1px black;
+    display: flex;
+    font-size: 18px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: beige;
+    background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    color: beige;
+}
+
+.contact-us div {
+    width: 80%;
+}
+
+.name {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.mobile {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.name input {
+    height: 40px;
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 3px 3px 10px rgb(237, 205, 144);
+}
+
+.name input:hover {
+    transform: scale(1.02);
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.mobile input:hover {
+    transform: scale(1.02);
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.mobile input {
+    height: 40px;
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 3px 3px 10px rgb(237, 205, 144);
+}
+
+.city {
+    width: 80%;
+
+}
+
+.city select {
+    width: 100%;
+    height: 40px;
+    background-color: aliceblue;
+}
+
+.city select:hover {
+    transform: scale(1.02);
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.gender {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.gender input {
+    height: 20px;
+    width: 20px;
+}
+
+#city {
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 3px 3px 10px rgb(237, 205, 144);
+}
+
+#city option {
+    background-color: #2a3222;
+    color: beige;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 3px 3px 10px gainsboro;
+    background-color: aliceblue;
+}
+
+button:hover {
+    transform: scale(1.1);
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.consent {
+    display: flex;
+    gap: 10px;
+}
+
+.consent input {
+    height: 20px;
+}
