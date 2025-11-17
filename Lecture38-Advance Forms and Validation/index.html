@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="password"><br>
+    <input type="date"><br>
+    <input type="time"><br>
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox"><br>
+    <input type="radio" name="mcq1" value="optionA">
+    <input type="radio" name="mcq1" value="optionB">
+    <input type="radio" name="mcq1" value="optionC">
+    <input type="radio" name="mcq1" value="optionD"><br>
+    <input type="radio" name="mcq2" value="optionA">
+    <input type="radio" name="mcq2" value="optionB">
+    <input type="radio" name="mcq2" value="optionC">
+    <input type="radio" name="mcq2" value="optionD"><br>
+    <select name="" id="">
+        <option value="">select</option>
+        <option>pune</option>
+        <option>mumbai</option>
+        <option>delhi</option>
+        <option>Chennai</option>
+    </select>
+
+    <select name="" id="" multiple="true">
+        <option value="">select</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+        <option>D</option>
+    </select>
+    <br><br>
+    <input type="file">
+    <button>Submit</button>
+    <script>
+        const inputs = {}
+        const btn = document.querySelector("button");
+        btn.addEventListener("click", () => {
+            const password = document.querySelector("input[type=password]")
+            inputs.password = password.value;
+
+            const checkedArray = document.querySelectorAll("input[type=checkbox]:checked")
+            inputs.checkbox = checkedArray
+
+            const date = document.querySelector("input[type=date]");
+            inputs.date = new Date(date.value)
+
+            const time = document.querySelector("input[type=time]");
+            inputs.time = time.value;
+
+            const mcq1 = document.querySelector("input[name=mcq1]:checked");
+            inputs.mcq1 = mcq1?.value;
+
+            const mcq2 = document.querySelector("input[name=mcq2]:checked");
+            inputs.mcq2 = mcq2?.value;
+
+
+            // console.log(inputs)
+
+            inputs.select = document.querySelector("[multiple=true]").options;
+            const options = Array.from(inputs.select)
+            const filteredArray = options.filter((ele) => ele.selected)
+                .map((ele) => ele.value)
+            // console.log(filteredArray)
+
+            const file = document.querySelector("[type=file]");
+            // console.log(file.value)
+
+            // FileReader
+            // dataUrl
+            //blur,focus,change,input
+        })
+    </script>
+</body>
+
+</html>
