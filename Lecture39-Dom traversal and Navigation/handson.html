@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="row1">
+                <td>Devanshu</td>
+                <td>22</td>
+                <td>98</td>
+            </tr>
+
+            <tr class="row2">
+                <td>Parth</td>
+                <td>20</td>
+                <td>89</td>
+            </tr>
+            <tr class="row3">
+                <td>Shree</td>
+                <td>18</td>
+                <td>40</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+
+        //parentElement
+        // console.log(document.querySelector(".row3").parentElement)
+
+        // closest
+        console.log(document.querySelector(".row3").closest("tr"));
+        // itself is closest
+
+        // tagName
+        // return in uppercase
+        console.log(document.querySelector(".row3").tagName)
+
+        // firstElementChild
+        console.log(document.querySelector("body").firstElementChild)//table
+
+        // lastElementChild
+        console.log(document.querySelector("body").firstElementChild)//also table
+
+        // children
+        console.log(document.querySelector("table").children)
+        // then u can acccess [0] [1] like this its elements
+
+        // nextElementSibling
+        // previousElementSibling
+        console.log(document.querySelector(".row2").previousElementSibling)
+        console.log(document.querySelector(".row2").nextElementSibling)
+
+        
+
+    </script>
+</body>
+
+</html>

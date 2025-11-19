@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="great-grand-parent">
+        <div class="grand-parent">
+            <div class="parent">
+                <div class="child">Child</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="parent">Parent</div>
+    <div class="parent2">
+        <div class="child1"></div>
+        <div class="child2"></div>
+        <div class="child3"></div>
+    </div>
+
+    <div class="card">
+        <p class="title">
+            shoes
+        </p>
+        <div class="temp">
+            <div class="buttons">
+                <button class="delete">Delete</button>
+                <button class="edit">Edit</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        console.log(Math.floor((Math.random()+1)*1000000)) //this return random number between (0, 1]
+        // parentElement
+        const child = document.querySelector(".child")
+        console.log(child.parentElement)
+
+        const parent = document.querySelector(".parent")
+        console.log(parent.parentElement)
+
+        const grandParent = document.querySelector(".grand-parent")
+        console.log(grandParent.parentElement);
+
+        console.log(document.body.parentElement)
+
+        // html element parent-null
+        console.log(document.body.parentElement.parentElement)
+
+        // closest searches a elements that is closest to it only check parents
+        console.log(child.closest(".parent"))
+        console.log(child.closest("div")) // gives itself
+
+        // adding class to great-grand-parent using loop
+        let child1 = document.querySelector(".child")
+        let ele = child1;
+        while (ele.parentElement != document.body) {
+            ele = ele.parentElement
+        }
+        ele.classList.add("accio")
+        // tagName return in UpperCase DIV
+        console.log(ele.tagName)
+
+        // childNodes vs children
+        console.log(document.body.childNodes)
+        console.log(document.body.children)
+
+        const parent2 = document.querySelector(".parent2")
+        // firstElement child
+        console.log(parent2.firstElementChild)
+        console.log(parent2.lastElementChild)
+
+        // children
+        console.log(parent2.children[1]);
+
+        document.body.children[0].classList.add("accio");
+        console.log(document.body.children[0]);
+
+        // iterating on children
+        for (let child of parent2.children) {
+            console.log(child)
+        }
+
+        // siblings
+        const child1Element = document.querySelector(".child1")
+        console.log(child1Element.nextElementSibling)//child2
+        console.log(child1Element.previousElementSibling)//null since it has not
+
+        console.log("elements")
+
+        const child2 = document.querySelector(".child2")
+        let ele1 = child2;
+        while (ele1.previousElementSibling != null) {
+            console.log(ele1.previousElementSibling);
+            ele1 = ele1.previousElementSibling
+        }
+        ele1 = child2
+        while (ele1.nextElementSibling != null) {
+            console.log(ele1.nextElementSibling);
+            ele1 = ele1.nextElementSibling;
+        }
+
+        const deleteBtn = document.querySelector(".delete");
+        // let tempEle = deleteBtn;
+
+        // while (tempEle.parentElement.className != "card") {
+        //     tempEle = tempEle.parentElement
+        // }
+        // console.log(tempEle)
+        // deleteBtn.addEventListener("click", (e) => {
+        //     e.preventDefault();
+        //     tempEle.parentElement.remove();
+        // })
+
+        deleteBtn.addEventListener("click",(e)=>{
+            e.preventDefault();
+            deleteBtn.closest(".card").remove();
+        })
+
+        
+
+
+    </script>
+</body>
+
+</html>
