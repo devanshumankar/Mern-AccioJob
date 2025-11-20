@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="gallery">
+        <button class="show-products">Show all products</button>
+            <!-- <div class="card">
+                <div class="title">Product 1</div>
+                <div class="price">₹24.99</div>
+                <button>Add to Cart</button>
+            </div> -->
+    </div>
+    <script>
+        const products = [
+            {
+                title: "product 1",
+                price: 30,
+            },
+            {
+                title: "product 2",
+                price: 20,
+            },
+            {
+                title: "product 3",
+                price: 30,
+            },
+            {
+                title: "product 4",
+                price: 40,
+            },
+            {
+                title: "product 5",
+                price: 50,
+            },
+        ];
+
+        const showButton = document.querySelector(".show-products");
+        const cards = document.querySelector(".gallery")
+        showButton.addEventListener("click", (e) => {
+            showButton.style.display="none";
+            e.preventDefault();
+            for (let ele of products) {
+                const divElement = document.createElement("div");
+                divElement.className = "card";
+                divElement.innerHTML = `<div class="title">${ele.title}</div>
+                                        <div class="price">${ele.price}</div>
+                                        <button>Add to Cart</button>`
+                cards.append(divElement);
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>

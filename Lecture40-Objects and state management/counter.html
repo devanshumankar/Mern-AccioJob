@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p>0</p>
+        <span>Level : 0</span>
+        <button id="increase">Increase</button>
+        <button id="decrease">Decrease</button>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <span>Select your Theme</span>
+    <button id="dark">Dark</button>
+    <button id="light">Light</button>
+
+    <script >
+        const state = {
+            theme: "dark",
+            level: 0
+        }
+
+        const counter = {
+            count: 0,
+
+            level: 0,
+
+            elements: {
+                levelElement: document.querySelector("div span"),
+                darkTheme: document.querySelector("#dark"),
+                lightTheme: document.querySelector("#light"),
+                pElement: document.querySelector("p"),
+                increase: document.querySelector("#increase"),
+                decrease: document.querySelector("#decrease")
+            },
+
+            updateLevel(newCount) {
+                if (newCount > 10) {
+                    this.level = 3;
+                } else if (newCount > 5) {
+                    this.level = 2;
+                } else if (newCount > 0) {
+                    this.level = 1;
+                } else {
+                    this.level = 0;
+                }
+                this.elements.levelElement.textContent = "Level :" + this.level;
+                state.level = this.level;
+            },
+
+            updateCount(newCount) {
+                this.elements.pElement.textContent = newCount;
+            },
+
+            events() {
+                increase.addEventListener("click", () => {
+                    this.count++;
+                    this.updateCount(this.count);
+                    this.updateLevel(this.count);
+                }),
+
+                    this.elements.decrease.addEventListener("click", () => {
+                        this.count--;
+                        this.updateCount(this.count);
+                        this.updateLevel(this.count);
+                    })
+
+                this.elements.lightTheme.addEventListener("click", () => {
+                    document.body.style.backgroundColor = "white";
+                    document.body.style.color = "black";
+                })
+
+                this.elements.darkTheme.addEventListener("click", () => {
+                    document.body.style.backgroundColor = "black";
+                    document.body.style.color = "white";
+                })
+            }
+        }
+        counter.events();
+
+
+        // let count = 0;
+        // const pElement = document.querySelector("p");
+        // const increase = document.querySelector("#increase")
+        // const decrease = document.querySelector("#decrease")
+
+        // increase.addEventListener("click", () => {
+        //     count++;
+        //     pElement.textContent = count;
+        // })
+
+        // decrease.addEventListener("click", () => {
+        //     count--;
+        //     pElement.textContent = count;
+        // })
+
+
+
+    </script>
+</body>
+
+</html>

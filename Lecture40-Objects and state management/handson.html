@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .player {
+        border: solid 1px black;
+        height: 300px;
+        width: 600px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .img {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+
+    <div class="player">
+        <div class="img">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.AfNzkWV5XW139q1kQPWmcQHaKe?pid=Api&P=0&h=180" alt="">
+        </div>
+        <div class="data">
+            <p>Level : 0</p>
+            <button class="inc">Increase Level</button>
+            <button class="dec">Decrease Level</button>
+        </div>
+    </div>
+    <div class="player">
+        <div class="img">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.zMI7_zdhHmjMS1765THyNQHaHa?pid=Api&P=0&h=180" alt="">
+        </div>
+        <div class="data">
+            <p>Level : 0</p>
+            <button class="inc">Increase Level</button>
+            <button class="dec">Decrease Level</button>
+        </div>
+    </div>
+    <div class="player">
+        <div class="img">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.ttGORoOrEHpJ67-5Z9Ul2AHaG8?pid=Api&P=0&h=180" alt="">
+        </div>
+        <div class="data">
+            <p>Level : 0</p>
+            <button class="inc">Increase Level</button>
+            <button class="dec">Decrease Level</button>
+        </div>
+    </div>
+
+    <script>
+        
+
+        // const allPlayerInc = document.querySelectorAll(".player");
+
+        // allPlayerInc.forEach((ele) => {
+        //     const pElement = ele.querySelector("p");
+        //     const incBtn = ele.querySelector(".inc");
+        //     const decBtn = ele.querySelector(".dec");
+        //     let count = 0;
+        //     incBtn.addEventListener("click", () => {
+        //         count++;
+        //         pElement.textContent = "Level :" + count;
+        //     })
+
+        //     decBtn.addEventListener("click", () => {
+        //         count--;
+        //         pElement.textContent = "Level :" + count;
+        //     })
+        // })
+
+        const object = {
+            players: document.querySelectorAll(".player"),
+
+            events() {
+                this.players.forEach((ele) => {
+                    let count = 0
+                    const pElement = ele.querySelector("p");
+                    const incBtn = ele.querySelector(".inc");
+                    const decBtn = ele.querySelector(".dec");
+                    incBtn.addEventListener("click", () => {
+                        count++;
+                        pElement.textContent = "Level :" + count;
+                    })
+
+                    decBtn.addEventListener("click", () => {
+                        count--;
+                        pElement.textContent = "Level :" + count;
+                    })
+                })
+
+            }
+        }
+        object.events();
+
+        /*
+            Important use case of this keyword    
+
+            const obj={
+                count:0,
+                addCount(){
+                    this.count++
+                    console.log("this",this); //here this will referes to the obj
+                
+                }
+            }
+            const incElement=document.querySelector("inc");
+            incElement.addEventListener("click",obj.addCount) //here this will referes to incElement not obj
+            
+            // to handle it we can do
+            incElement.addEventListener("click",()=>{
+                obj.addCount()
+            })
+        */
+    </script>
+</body>
+
+</html>
