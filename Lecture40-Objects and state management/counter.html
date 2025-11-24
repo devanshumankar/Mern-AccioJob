@@ -37,8 +37,13 @@
                 darkTheme: document.querySelector("#dark"),
                 lightTheme: document.querySelector("#light"),
                 pElement: document.querySelector("p"),
-                increase: document.querySelector("#increase"),
-                decrease: document.querySelector("#decrease")
+                decrease: document.querySelector("#decrease"),
+                a:{
+                    b:{
+                        increase: document.querySelector("#increase"),
+                        
+                    }
+                }
             },
 
             updateLevel(newCount) {
@@ -60,8 +65,9 @@
             },
 
             events() {
+                console.log(increase)
                 increase.addEventListener("click", () => {
-                    this.count++;
+                    count++;
                     this.updateCount(this.count);
                     this.updateLevel(this.count);
                 }),
