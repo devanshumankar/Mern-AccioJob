@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grand-parent">
+        <div class="parent">
+            <div class="child">Child</div>
+        </div>
+    </div>
+
+    <script>
+        const parent = document.querySelector(".parent");
+        const child = document.querySelector(".child");
+        const grandParent = document.querySelector(".grand-parent");
+        parent.addEventListener("click", (event) => {
+            // event.stopPropagation();
+            console.log("parent click")
+
+        }, { capture: false })
+
+        child.addEventListener("click", (event) => {
+            console.log("child click")
+            console.log("target", event.target)//which has triggered the event //it will be deepest value
+            console.log("current target", event.currentTarget) //element which captures the event
+        }, { capture: false })
+
+        grandParent.addEventListener("click", (event) => {
+            console.log("grandParent click")
+
+        }, { capture: false })
+
+        grandParent.addEventListener("click", (event) => {
+            console.log("event 2 on grandParent")
+            // event.stopImmediatePropagation();//after that no events will be triggers
+        }, { capture: false })
+
+        grandParent.addEventListener("click", (event) => {
+
+            console.log("event 3 on grandParent")
+        }, { capture: false })
+
+
+        function greetMe(greeting) {
+            console.log(greeting, this.name)
+            // here it will refer to global object
+        }
+        greetMe("Hi");
+
+        const obj = {
+            name: "Devanshu"
+        }
+
+        // if u want to refer name from this then
+        greetMe.call(obj, "Hi");
+        // here it will call the function and at a same time obj will be in this
+
+        // same as call but arguments are passed as array
+        greetMe.apply(obj, ["Hi"]);
+
+        // bind is used if you want to attach obj to greetMee permanently so that we dont need to pass obj again and again
+        // attach obj to func and return function
+
+        const greetPerson = greetMe.bind(obj, "bye");
+        greetPerson();
+
+    </script>
+</body>
+
+</html>

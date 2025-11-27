@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            gap: 40px;
+            width: 100vw;
+        }
+
+        .product {
+            height: 100px;
+            width: 100px;
+            border: solid 1px black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grand-parent">
+        <div class="parent">
+            <div class="child">Child</div>
+        </div>
+    </div>
+
+    <div class="products">
+        <div class="product">
+            <div class="buttons">
+                <button>Add</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="buttons">
+                <button>Add</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="buttons">
+                <button>Add</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="buttons">
+                <button>Add</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // problem:
+        // suppose there are 10 products where we add event listener on each product
+
+        // so if we add new product then again we will have to write a code of event
+        // and also if there are multiple products then memory can be waste
+        // and if u have to update any part of single product the u also need to update other products
+
+        const parent = document.querySelector(".parent");
+        const child = document.querySelector(".child");
+        const grandParent = document.querySelector(".grand-parent");
+
+        // child.addEventListener("click",()=>{
+        //     console.log("child click")
+        // })
+        // parent.addEventListener("click",()=>{
+        //     console.log("parent click")
+        // })
+        // grandParent.addEventListener("click",()=>{
+        //     console.log("grandParent click")
+        // })
+        // this will goes from inside to outside
+        // which is bubbling
+
+        // child.addEventListener("click", (e) => {
+        //     // e.stopPropagation()
+        //     console.log("child click")
+        // }, { capture: true })
+        // parent.addEventListener("click", (e) => {
+        //     // e.stopPropagation()
+        //     console.log("parent click")
+        // }, { capture: true })
+        // grandParent.addEventListener("click", (e) => {
+        //     e.stopPropagation()
+        //     console.log("grandParent click")
+        // }, { capture: true })
+
+        // here you will get outside to inside
+        // which is capturing
+
+        // stopPropogation: since here capturing is done
+        // then first grandParent event will trigger but we stopPropogation
+        // which means we will stop there only and parent and child will not get triggered
+
+        //stopImmediatePropogation
+
+        //         Behavior	                    stopPropagation	stopImmediatePropagation
+        //   Stops bubbling upward	                 ✔	                ✔
+        // Stops other listeners on SAME element	❌	               ✔
+
+        child.addEventListener("click", (e) => {
+
+            console.log("child click")
+        }, { capture: true })
+
+        parent.addEventListener("click", (e) => {
+            // e.stopPropagation(); //here we get grandparent,parent but all click event
+            // here it does not stop all events that are applied on parent
+            // to make it stop ath that point only we use stopImmediatePropogation
+
+            e.stopImmediatePropagation()//not other clicks will be trigger after this
+            console.log("parent click1")
+        }, { capture: true })
+
+        parent.addEventListener("click", (e) => {
+
+            console.log("parent click2")
+        }, { capture: true })
+
+        parent.addEventListener("click", (e) => {
+
+            console.log("parent click3")
+        }, { capture: true })
+
+        grandParent.addEventListener("click", (e) => {
+
+            console.log("grandParent click")
+        }, { capture: true })
+
+
+        // target vs currentTarget
+        // target->it is something where event is started and it is the deepest point
+        // currentTarget->is something who is capturing event
+
+        const products = document.querySelector(".products");
+        products.addEventListener("click", (e) => {
+            e.preventDefault();
+            const ele = e.target.closest(".product")
+            ele.style.border = "solid 1px red";
+        })
+
+        function greeting(age) {
+            console.log(this.name, "is", age, "years old")
+        }
+        greeting(22);
+        // here this will refers to window obj
+
+        // so to make sure that name should be taken from any obj
+        // we need to attach this to that obj
+        const demoObj = {
+            name: "Devanshu"
+        }
+        // call simply calls the function and this will refered to the obj
+        greeting.call(demoObj, 22);
+
+        // apply:same as call but if you want to pass arguments as array then it is used
+
+        greeting.apply(demoObj,[22]);
+
+        // now here their is problem you need to pass demoObj multiple time when you need that this must be reffered to the obj
+
+        // so we can attach once and then simply use function and will just need to pass parameteres
+
+        // bind=> return function and attach obj to this
+        const newgretting=greeting.bind(demoObj);
+        newgretting(22);
+    </script>
+</body>
+
+</html>
