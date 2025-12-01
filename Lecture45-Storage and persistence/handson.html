@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // How the data is stored
+        // we store the data in browser memory(RAM)
+
+        // Problems:
+        // 1:we cant able to persist the data
+        // 2:If we refresh the page data will be lost
+        // 3.if we open the same page in different tabs then we cant have same data in new page that we created in previous page
+
+        // for that we had 2 different storage methods that can store the data
+        // 1.LocalStorage
+        // 2.SessionStorage
+
+        // LocalStorage
+
+        // 1.stores the data in key value form
+        // 2.both has type string
+        // 3.origins has domain co-domain and host if any origin is is differnt the storage will be created for that origin
+        // and each of the storage will have 5 to 10 mb of memory
+
+        // methods of localStorage
+
+        // 1.setItem
+        localStorage.setItem("name", "Devanshu")
+
+        // 2.getItem
+        console.log(localStorage.getItem("name"));
+
+        // 3.Updating the value:same key and diff value will update the existing key
+        localStorage.setItem("name", "newName");
+
+        console.log(localStorage.getItem("name"))
+
+        // deleting
+        // clear():remove all data of localStorage
+        localStorage.clear();
+
+        localStorage.setItem("key1", "value1")
+        localStorage.setItem("key2", "value2")
+        localStorage.setItem("key3", "value3")
+        localStorage.setItem("key4", "value4")
+        localStorage.setItem("key5", "value5")
+
+        // removeItem
+        localStorage.removeItem("key1")
+
+        for (let i = 0; i < localStorage.length; i++) {
+            console.log(localStorage.key(i), localStorage.getItem(localStorage.key(i)))
+        }
+        // get a key:index same as array
+        console.log("2nd key", localStorage.key(1))
+
+        // function to check local Storage present or not
+        function hasLocalStorage() {
+            try {
+                localStorage.setItem("key", "val")
+                if (localStorage.getItem("key") === "val") {
+                    return true;
+                }
+            }
+            catch (err) {
+                return false;
+            }
+        }
+
+        // when does it will persist the data
+        //1. open same tab again
+        //2. refresh the page
+        //3. reopen the browser
+
+        // limitation
+        // 1.cant store large data
+        // 2.stores data in key form and they must be string
+        // 3.limited storage generate error QuotaExceededError if storage excced
+        // 4.synchronous in nature :if large writing in done in localStorage then other excution will wait until over
+        // 5.security:Since local storage is availabel across whole application
+        // but there might be cases that we dont want that data should be accessible in a particular page so
+        // there we get access which makes it less secure
+    </script>
+</body>
+
+</html>
