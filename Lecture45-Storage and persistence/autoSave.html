@@ -8,12 +8,16 @@
 </head>
 
 <body>
-    <input type="text">
+    <input type="text" value="">
     <p></p>
 
     <script>
         const ip = document.querySelector("[type=text]");
         const p = document.querySelector("p")
+        if (localStorage.getItem("data")) {
+            ip.value = localStorage.getItem("data");
+            p.textContent = localStorage.getItem("data");
+        }
         ip.addEventListener("input", () => {
             localStorage.setItem("data", ip.value)
             p.textContent = localStorage.getItem("data");
