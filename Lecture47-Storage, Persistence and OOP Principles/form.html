@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <form id="personalDetails">
+        <h1>Personal Details</h1>
+        <label for="name">Name :</label><input type="text" placeholder="enter name" id="name"><br>
+        <label for="dob">Dob :</label><input type="date" placeholder="enter dob" id="dob"><br>
+        <label for="phone">Phone :</label><input type="tel" placeholder="enter Phone no" id="phone"><br>
+        <label for="email">email :</label><input type="email" placeholder="enter email" id="email"><br>
+        <button id="n1">Next</button>
+    </form>
+
+    <form id="Education">
+        <h1>Academics</h1>
+        <label for="ssc-school">SSC</label><input type="text" placeholder="hsc Details" id="ssc-school"><br>
+        <label for="hsc-school">HSC</label><input type="text" placeholder="hsc Details" id="hsc-school"><br>
+        <label for="hsc">hsc %</label><input type="number" placeholder="hsc percentage" id="hsc"><br>
+        <label for="ssc">ssc %</label><input type="number" placeholder="ssc percentage" id="ssc"><br>
+        <button id="n2">Next</button>
+    </form>
+
+    <form id="WE">
+        <h1>Work Experience</h1>
+        <label for="company">Company Name</label><input type="text" placeholder="Enter Company Name" id="company"><br>
+        <label for="yoe">Years of Exp</label><input type="text" placeholder="Enter yoe" id="yoe"><br>
+        <button id="last-btn">Submit</button>
+    </form>
+
+    <script>
+        const form1 = document.querySelector("#personalDetails");
+        const form2 = document.querySelector("#Education");
+        const form3 = document.querySelector("#WE");
+
+        const username = document.querySelector("#name");
+        const dob = document.querySelector("#dob");
+        const phone = document.querySelector("#phone");
+        const email = document.querySelector("#email");
+
+        const company = document.querySelector("#company")
+        const yoe = document.querySelector("#yoe")
+
+        const hscName = document.querySelector("#hsc-school");
+        const sscName = document.querySelector("#ssc-school");
+        const hscPercentage = document.querySelector("#hsc")
+        const sscPercentage = document.querySelector("#ssc")
+
+        const submit = document.querySelector("#last-btn")
+        form2.style.display = "none";
+        form3.style.display = "none";
+
+        const temp = JSON.parse(localStorage.getItem("personal"))
+        console.log(temp)
+        username.value = temp.name
+        dob.value = temp.dob
+        phone.value = temp.phone
+        email.value = temp.email
+
+        const next1 = document.querySelector("#n1")
+        next1.addEventListener("click", (e) => {
+            e.preventDefault();
+            const personalDetails = {
+                name: username.value,
+                dob: dob.value,
+                phone: phone.value,
+                email: email.value
+            }
+            localStorage.setItem("personal", JSON.stringify(personalDetails))
+            form2.style.display = "block";
+            form1.style.display = "none";
+
+            const obj = JSON.parse(localStorage.getItem("education"))
+            console.log(obj)
+            hscName.value = obj.hscName
+            sscName.value = obj.sscName
+            hscPercentage.value = obj.hscPercentage
+            sscPercentage.value = obj.sscPercentage
+        })
+
+        const next2 = document.querySelector("#n2");
+        next2.addEventListener("click", (e) => {
+            e.preventDefault();
+            form3.style.display = "block"
+            form2.style.display = "none"
+            const eduObj = {
+                hscName: hscName.value,
+                sscName: sscName.value,
+                hscPercentage: hscPercentage.value,
+                sscPercentage: sscPercentage.value
+            }
+            localStorage.setItem("education", JSON.stringify(eduObj))
+
+            const obj = (JSON.parse(localStorage.getItem("company")))
+            console.log(obj)
+            company.value = obj.company
+            yoe.value = obj.yoe
+        })
+
+
+        submit.addEventListener("click", () => {
+            const companyObj = {
+                company: company.value,
+                yoe: yoe.value
+            }
+            localStorage.setItem("company", JSON.stringify(companyObj))
+        })
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

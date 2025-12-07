@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Multi Level Forms</title>
+	</head>
+	<body>
+		<div class="forms">
+			<h1></h1>
+			<form class="personal-details" data-form-name="Personal Details">
+				<input type="text" id="full-name" placeholder="Enter full name" />
+				<input type="number" id="age" placeholder="Enter age" />
+			</form>
+			<form class="educational-details" data-form-name="Educational Details">
+				<input type="text" id="college-name" placeholder="Enter college name" />
+				<input
+					type="number"
+					id="college-percentage"
+					placeholder="Enter percentage"
+				/>
+			</form>
+			<form class="work-experience" data-form-name="Work Experience">
+				<input type="text" id="company-name" placeholder="Enter company name" />
+				<input
+					type="number"
+					id="total-experience"
+					placeholder="total experience in months"
+				/>
+			</form>
+			<button>Next</button>
+		</div>
+		<script>
+			const personalDetails = document.querySelector(".personal-details");
+			const educationalDetails = document.querySelector(".educational-details");
+			const workExperience = document.querySelector(".work-experience");
+			const formTitle = document.querySelector("h1");
+			const nextButton = document.querySelector("button");
+
+			const forms = [personalDetails, educationalDetails, workExperience];
+
+			let currentForm = 0;
+
+			forms.forEach((form, index) => {
+				if (index !== currentForm) form.style.display = "none";
+			});
+
+			function loadSavedValues(form) {
+				[...form.children].forEach((input) => {
+					if (sessionStorage.getItem(input.id)) {
+						input.value = sessionStorage.getItem(input.id);
+					}
+				});
+			}
+
+			loadSavedValues(forms[currentForm]);
+			formTitle.textContent = forms[currentForm].dataset.formName;
+
+			nextButton.addEventListener("click", () => {
+				let allFieldsFilled = true;
+
+				[...forms[currentForm].children].forEach((input) => {
+					if (input.value.trim().length === 0) {
+						allFieldsFilled = false;
+					} else {
+						sessionStorage.setItem(input.id, input.value);
+					}
+				});
+
+				if (!allFieldsFilled) {
+					alert("All fields are required");
+					return;
+				}
+
+				forms[currentForm].style.display = "none";
+				currentForm++;
+
+				if (currentForm < forms.length) {
+					forms[currentForm].style.display = "block";
+					loadSavedValues(forms[currentForm]);
+					formTitle.textContent = forms[currentForm].dataset.formName;
+				}
+			});
+		</script>
+	</body>
+</html>
