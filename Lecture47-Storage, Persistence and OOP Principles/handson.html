@@ -41,10 +41,13 @@
 
 			let currentForm = 0;
 
+			// make display of all other form that are not current form to none so
+			// only current form will b available
 			forms.forEach((form, index) => {
 				if (index !== currentForm) form.style.display = "none";
 			});
 
+			// loading data from sessionStorage for current form if exists
 			function loadSavedValues(form) {
 				[...form.children].forEach((input) => {
 					if (sessionStorage.getItem(input.id)) {
@@ -54,11 +57,13 @@
 			}
 
 			loadSavedValues(forms[currentForm]);
+			// setting heading of h1 from dataset set
 			formTitle.textContent = forms[currentForm].dataset.formName;
 
 			nextButton.addEventListener("click", () => {
 				let allFieldsFilled = true;
 
+				// storing values in session storage
 				[...forms[currentForm].children].forEach((input) => {
 					if (input.value.trim().length === 0) {
 						allFieldsFilled = false;
@@ -72,12 +77,18 @@
 					return;
 				}
 
+				// moving to next form so make current form display to be none
 				forms[currentForm].style.display = "none";
 				currentForm++;
 
 				if (currentForm < forms.length) {
+
+					// then make that current form display block after moving to the next
 					forms[currentForm].style.display = "block";
+					// again fetch
+
 					loadSavedValues(forms[currentForm]);
+					// update the heading
 					formTitle.textContent = forms[currentForm].dataset.formName;
 				}
 			});
