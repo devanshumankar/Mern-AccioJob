@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// oop pillers
+
+			// 1.Inheritance
+			// where child class inherits the property parent class
+			// It can be apply when we have "is a" relationship
+			// Car is a Vehicle
+
+			//2.Encapsulation
+			// In is use to protect the data where we have private fields and we
+			// provide acces to them using getters and setters
+
+			// 3.Polymorphism:
+			// single methods can have many forms
+
+			// 4.Abstraction:It means hididng implementation details
+			// and showing key functinality to the user
+
+			// 5.composition
+			// it has "has a" relationship
+			// ex:profile has a setting
+
+			class Parent {
+				constructor(name, age) {
+					this.name = name;
+					this.age = age;
+				}
+				info() {
+					console.log("Parent Class");
+				}
+			}
+
+			class Child extends Parent {
+				constructor(name, age, department) {
+					super(name, age);
+					this.department = department;
+				}
+				display() {
+					return super.info();
+				}
+			}
+
+			let obj = new Child("Devanshu", 22, "SDE");
+			console.log(obj);
+            obj.display()
+			// when you extends some class then only one this is created for both parent and child
+			// you cant aceess this before super in child
+			// flow:
+
+			// new ->{} and bind this to it
+			// in child class constructor we need 3 parameteres
+			// so we send name="Devanshu" and age="22" to parent using super
+			// super calls the parent class constructor with the name ans age values
+			// then this object is contsructed first by parent
+			// {
+			// name:"DEvanshu",
+			// age:22
+			// }
+
+			// then child class can acces to that this object once parent have acces it (otherwise through error)
+			// then it add departnment:SDE in this object
+
+			// composition
+			class Profile {
+				constructor(name) {
+					this.theme = new Setting("Dark");
+					this.name = name;
+				}
+				getProfile() {
+					console.log(this.theme, this.name);
+				}
+			}
+			class Setting {
+				constructor(theme) {
+					this.theme = theme;
+				}
+			}
+
+			const p1 = new Profile("Devanshu");
+			console.log(p1.getProfile());
+		</script>
+	</body>
+</html>

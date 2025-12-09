@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			class Animal {
+				constructor({ name, age, color }) {
+					this.name = name;
+					this.age = age;
+					this.color = color;
+				}
+			}
+
+			const dogDetails = {
+				name: "Xyz",
+				age: 12,
+				color: "red",
+			};
+
+			const catDetails = {
+				name: "ysysy",
+				age: 14,
+				color: "blue",
+			};
+
+			class Dog extends Animal {
+				constructor() {
+					super(dogDetails);
+				}
+				speak() {
+					console.log("Barking");
+				}
+			}
+
+			class Cat extends Animal {
+				constructor() {
+					super(catDetails);
+				}
+				speak() {
+					console.log("Meow");
+				}
+			}
+
+			const dog1 = new Dog();
+
+			dog1.speak();
+			console.log(dog1.name);
+
+			// if there is an method which child is trying to access and it has not that method then it will look into the prototype of parent
+			// if fount then it will refer that method otherwise it will look into its parent
+
+			// whenever child super() run
+			// it calls parent class constructor
+			// then parents constructor set all the properties
+			// when parent is contructing prop then it is constructing prop of "this" of child class
+
+			// parent will fill all the props of this of child
+
+			// encapsulation:is for protecting the data and providing access using getter and setter
+
+			// inheritance:It can be apply when we have "is a" relation between two entities like dog is a animal
+
+			// polymorphism:a method exists in many form
+			// poly-many
+			//morphism-form
+
+			// different classes can implement methods with same name
+
+			// abstraction:hiding implementation details(protecting business logic) and showing key functionality to user
+
+			// composition
+			// "has a " relation then we use composition ex:profile has as setting
+
+			// we combine two or more class in main constructor that we required before building main
+			// this.setting=new Setting()
+		</script>
+	</body>
+</html>
