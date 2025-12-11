@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// inheritance
+
+			class Laptop {
+				constructor(screen, camera) {
+					this.screen = screen;
+					this.camera = camera;
+				}
+			}
+			class Lenovo extends Laptop {
+				constructor(name, price, screen, camera) {
+					super(screen, camera);
+					this.name = name;
+					this.price = price;
+				}
+				getDetails() {
+					return {
+						name: this.name,
+						price: this.price,
+						screen: this.screen,
+						camera: this.camera,
+					};
+				}
+			}
+
+			const obj = new Lenovo("Lenovo", "80k", "144hz", "12mp");
+			console.log(obj.getDetails());
+			// real world example is orders ->online and offline
+
+			// abstraction
+			class Emi {
+				constructor(amount, months, interestRate) {
+					this.amount = amount;
+					this.months = months;
+					this.interestRate = interestRate;
+				}
+				#calculateEmi() {
+					let monthlyRate = this.interestRate / 100 / 12;
+					let emi =
+						(this.amount *
+							monthlyRate *
+							Math.pow(1 + monthlyRate, this.months)) /
+						(Math.pow(1 + monthlyRate, this.months) - 1);
+
+					return emi.toFixed(2);
+				}
+				showEmi() {
+					// here we are just showing what user wants whole logic is written someWhere else
+					return `Monthly Emi will be ${this.#calculateEmi()}`;
+				}
+			}
+
+			const emiObj = new Emi(10000, 12, 2);
+			console.log(emiObj.showEmi());
+
+			// polymorphism
+			class Parent {
+				start() {
+					console.log("parent");
+				}
+			}
+
+			class Child extends Parent {
+				start() {
+					console.log("child");
+				}
+			}
+
+			const childObj = new Child();
+			childObj.start();
+			// here it will override the parent start method with child start
+
+			// only method overriding is supported->i.e ->runtime
+
+			// encapsulation
+			class Product {
+				#price = 1;
+				constructor(name, price) {
+					this.name = name;
+					this.#price = price;
+				}
+
+				get price() {
+					return this.#price;
+				}
+				set price(newPrice) {
+					this.#price = newPrice;
+				}
+			}
+
+			const prodObj = new Product("Electronics", 200);
+			console.log(prodObj.price);
+			prodObj.price = 20;
+			console.log(prodObj.price);
+
+			// composition
+			// cart->address ,payment methods
+			class Profile {
+				constructor(name) {
+					this.theme = new Setting("Dark");
+					this.name = name;
+				}
+				getProfile() {
+					console.log(this.theme, this.name);
+				}
+			}
+			class Setting {
+				constructor(theme) {
+					this.theme = theme;
+				}
+			}
+
+			const p1 = new Profile("Devanshu");
+			p1.getProfile();
+
+			// singleton class
+
+			class SingleTon {
+				static instance;
+				constructor(name, age) {
+					if (SingleTon.instance) return SingleTon.instance;
+					SingleTon.instance = this;
+					this.name = name;
+					this.age = age;
+				}
+				getDetails() {
+					console.log(this.name, this.age);
+				}
+			}
+			const s1Obj = new SingleTon("Devanshu", 22);
+			s1Obj.getDetails();
+			const s2Obj = new SingleTon("Raj", 23);
+			s2Obj.getDetails();
+
+            // both will give same output a
+		</script>
+	</body>
+</html>

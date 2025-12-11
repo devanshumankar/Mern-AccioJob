@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// class Laptop {
+			// 	constructor(display, camera) {
+			// 		this.display = display;
+			// 		this.camera = camera;
+			// 	}
+			// }
+
+			// class Lenovo extends Laptop {
+			// 	constructor(display, camera, price) {
+			// 		super(display, camera);
+			// 		this.price = price;
+			// 	}
+			// }
+			// const obj = new Lenovo("144hz", "64mp", "70k");
+			// console.log(obj);
+
+			class Employess {
+				constructor(yearsOfExp) {
+					this.yearsOfExp = yearsOfExp;
+				}
+				salary() {
+					return 500000 * this.yearsOfExp;
+				}
+			}
+			class SalesEmployee extends Employess {
+				constructor(yearsOfExp) {
+					super(yearsOfExp);
+				}
+				salary() {
+					return 300000 * this.yearsOfExp;
+				}
+			}
+			class LeadEmployee extends Employess {
+				constructor(yearsOfExp) {
+					super(yearsOfExp);
+				}
+				salary() {
+					return 10000000 * this.yearsOfExp;
+				}
+			}
+
+			// const obj = new SalesEmployee(4);
+			// console.log("Sales salary",obj.salary());
+			// const obj2 = new LeadEmployee(5);
+			// console.log("Lead salary",obj2.salary());
+
+			class Interest {
+				constructor(p, r, t, n) {
+					this.p = p;
+					this.r = r;
+					this.t = t;
+					this.n = n;
+				}
+				interest() {
+					return this.p + this.r * this.t;
+				}
+			}
+
+			class SimpleInterest extends Interest {
+				constructor(p, r, t) {
+					super(p, r, t);
+				}
+				interest() {
+					return (this.p * this.r * this.t) / 100;
+				}
+			}
+			class CompoundInterest extends Interest {
+				constructor(p, r, t, n) {
+					super(p, r, t, n);
+				}
+				interest() {
+					return this.p * Math.pow(1 + this.r / this.n, this.n * this.t);
+				}
+			}
+
+			// let SI = new SimpleInterest(100, 2, 2);
+			// console.log("SI", SI.interest());
+			// let CI = new CompoundInterest(100, 2, 2, 4);
+			// console.log("CI", CI.interest());
+
+			// hw:singleton classes
+			class Student {
+				constructor(marks) {
+					this._marks = marks;
+				}
+
+				#calculateMarks() {
+					const totalSubjects = Object.keys(this._marks).length;
+
+					let totalMarks = 0;
+					for (let ele in this._marks) {
+						totalMarks += this._marks[ele];
+					}
+					return totalMarks / totalSubjects;
+				}
+
+				get marks() {
+					return this.#calculateMarks();
+				}
+			}
+
+			const marks = {
+				eng: 20,
+				math: 30,
+				science: 10,
+			};
+			// const devanshu=new Student(marks)
+			// console.log(devanshu.marks)
+
+			class PersonalDetails {
+				constructor({ name, age, dob }) {
+					this.name = name;
+					this.age = age;
+					this.dob = dob;
+				}
+
+				print() {
+					console.log(this.name, this.age, this.dob);
+				}
+			}
+
+			class EducationalDetails {
+				constructor({ college, gradYear, cgpa }) {
+					this.college = college;
+					this.gradYear = gradYear;
+					this.cgpa = cgpa;
+				}
+
+				print() {
+					console.log(this.college, this.gradYear, this.cgpa);
+				}
+			}
+
+			class Person {
+				constructor(aadharNumber, personalDetails, educationalDetails) {
+					this.aadharNumber = aadharNumber;
+					this.educationalDetails = new EducationalDetails(educationalDetails);
+					this.personalDetails = new PersonalDetails(personalDetails);
+				}
+			}
+			const personalDetails = {
+				name: "Devanshu",
+				age: 22,
+				dob: "30-04-2003",
+			};
+			const educationalDetails = {
+				college: "DPCOE",
+				gradYear: 2025,
+				cgpa: 8.5,
+			};
+			const person = new Person(111111, personalDetails, educationalDetails);
+			person.educationalDetails.print();
+			person.personalDetails.print();
+		</script>
+	</body>
+</html>
