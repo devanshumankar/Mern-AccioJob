@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			body {
+				height: 100vh;
+				width: 100vw;
+				background-color: black;
+				color: white;
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				justify-content: space-around;
+			}
+			h2 {
+				width: 90vw;
+				line-height: 1.4;
+				text-align: justify;
+			}
+			textarea {
+				height: 40vh;
+				width: 90vw;
+			}
+			input {
+				height: 35px;
+				width: 300px;
+				padding: 10px;
+				border: none;
+				background-color: rgb(34, 34, 34);
+				color: beige;
+			}
+			input:hover {
+				border: solid 2px rebeccapurple;
+				border-radius: 5px;
+			}
+			button {
+				height: 40px;
+				width: 80px;
+				background-color: rgb(146, 35, 35);
+				border-radius: 10px;
+				color: beige;
+				cursor: pointer;
+			}
+			p {
+				color: skyblue;
+			}
+			.timer h1 {
+				color: red;
+			}
+			.highlight {
+				font-size: 1.5rem;
+				background-color: rgb(25, 22, 22);
+				border: solid 2px rebeccapurple;
+				padding: 10px;
+				color: skyblue;
+			}
+			.result {
+				margin-top: 10px;
+				font-size: 1.3rem;
+				font-weight: 800;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="timer">
+			<h1>00:00:00</h1>
+		</div>
+		<div class="container">
+			<h2>
+				Mountains are some of the most beautiful and powerful features of the
+				Earth. They rise high above the land and are often covered with snow at
+				their peaks. Mountains are formed over millions of years by movements of
+				the Earth's crust, such as volcanic eruptions or the collision of tectonic
+				plates. They are home to many plants and animals that are specially
+				adapted to cold and rocky conditions. Mountains also play an important
+				role in nature by storing fresh water in the form of glaciers and rivers
+				that flow down to the plains. Many people visit mountains to enjoy their
+				natural beauty, peaceful environment, and activities like trekking and
+				camping.
+			</h2>
+		</div>
+
+		<form>
+			<input type="number" placeholder="enter time in sec" />
+			<button>Start</button>
+		</form>
+		<p>Type the Above Text</p>
+		<textarea disabled="true"> </textarea>
+		<div class="result"></div>
+
+		<script>
+			let totalTimeInSeconds = 0;
+			const startBtn = document.querySelector("button");
+			const inputEle = document.querySelector("input");
+			const textArea = document.querySelector("textarea");
+			const h2Element = document.querySelector(".container h2");
+			const originalText = h2Element.innerText.trim();
+			const result = document.querySelector(".result");
+			startBtn.addEventListener("click", (e) => {
+				e.preventDefault();
+				const time = Number(inputEle.value);
+				if (time <= 0) {
+					alert("Enter time above 0 sec");
+					return;
+				}
+				textArea.disabled = false;
+				textArea.classList.add("highlight");
+				textArea.focus();
+				totalTimeInSeconds = time;
+				timer();
+				inputEle.value = "";
+			});
+			textArea.addEventListener("input", (e) => {
+				const timeElement = document.querySelector(".timer h1");
+				let pattern = h2Element.innerText.trim();
+				highlightText(e.target.value);
+				if (e.target.value.length > pattern.length) {
+					calculateScore(e.target.value);
+					textArea.disabled = true;
+				}
+			});
+			function highlightText(str) {
+				let colorText = "";
+				let pattern = h2Element.innerText.trim();
+				for (let i = 0; i < pattern.length; i++) {
+					if (i < str.length) {
+						if (str[i] == pattern[i]) {
+							colorText += `<span style="color:green">${pattern[i]}</span>`;
+						} else {
+							colorText += `<span style="color:red">${pattern[i]}</span>`;
+						}
+					} else {
+						colorText += `<span style="color:white">${pattern[i]}</span>`;
+					}
+				}
+				h2Element.innerHTML = colorText;
+			}
+			function calculateScore(str) {
+				let accurateCharCount = 0;
+				for (let i = 0; i < str.length && i < originalText.length; i++) {
+					if (str[i] === originalText[i]) accurateCharCount++;
+				}
+
+				let timeInMinutes = totalTimeInSeconds / 60;
+				result.textContent = `Characters per minute: ${Math.round(
+					accurateCharCount / timeInMinutes
+				)}`;
+				h2Element.innerText = originalText;
+				textArea.value = "";
+			}
+
+			function timer() {
+				const timeElement = document.querySelector(".timer h1");
+				let timeText = "";
+				let remTime = inputEle.value;
+				let ref = setInterval(() => {
+					let hour = Math.floor(remTime / 3600);
+					let min = Math.floor((remTime % 3600) / 60);
+					let sec = Math.floor(remTime % 60);
+					let timeText =
+						String(hour).padStart(2, "0") +
+						":" +
+						String(min).padStart(2, "0") +
+						":" +
+						String(sec).padStart(2, "0");
+
+					timeElement.textContent = timeText;
+					remTime--;
+
+					if (remTime < 0) {
+						textArea.disabled = true;
+						clearInterval(ref);
+						calculateScore(textArea.value);
+					}
+				}, 1000);
+			}
+		</script>
+	</body>
+</html>
