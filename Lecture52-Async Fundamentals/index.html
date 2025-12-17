@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			body {
+				height: 100vh;
+				width: 100vw;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 20px;
+			}
+			.container {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				align-items: center;
+				background-color: black;
+				height: 300px;
+				width: 300px;
+				color: white;
+				border-radius: 20px;
+				box-shadow: 4px 4px 20px blue;
+			}
+			input {
+				padding: 10px;
+				height: 30px;
+				border-radius: 10px;
+				background-color: transparent;
+				color: white;
+				border: 2px solid blueviolet;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<p>00:00:00</p>
+			<h1>Math Quiz</h1>
+			<input type="text" readonly />
+			<input type="number" />
+			<h2></h2>
+		</div>
+		<script src="handson.js"></script>
+	</body>
+</html>
