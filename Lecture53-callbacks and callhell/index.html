@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// why callback is used
+			// when a task need to be perform then how a function would know that the task is completed
+			// so to make aware a function that the task is completed we use callback
+
+			// when you order in restaurant
+			// you get to know that your order is ready
+			// using waiter
+
+			// const id = setInterval(() => {
+			// 	const date = Date.now();
+			// 	let diff = Date.now() - date;
+			// 	while (diff < 5000) {
+			// 		// console.log(diff);
+			// 		diff = Date.now() - date;
+			// 	}
+			//     console.log("Task Completed")
+			// }, 1000);
+
+			// setTimeout(() => {
+			// 	clearInterval(id);
+			// }, 2000);
+
+			// setInterval using setTimeOut
+			function setIntervalUsingSetTimeOut() {
+				console.log("Hi");
+				setTimeout(setIntervalUsingSetTimeOut, 1000);
+			}
+			// setIntervalUsingSetTimeOut();
+
+			// callback hell
+			// function saveFormData(callback) {
+			//     // task1
+			//     // code to save personal details
+			//     setTimeout(()=>{
+			//         // task 2
+			//         // code to save edu details
+			//         setTimeout(()=>{
+			//             // task3
+			//              // code to save work details
+			//         },1000)
+			//     },1000)
+			// }
+
+			// it is like first task1 then after this task2 and after that task3
+			// what if there are 100 of task
+			// then they will be one inside inside that cause pyramid  doom or callback hell
+			// saveFormData();
+
+			// below is the way to prevent callback hell
+
+			function saveFormData() {
+				savePersonalDetails();
+			}
+			function savePersonalDetails() {
+				// code of personal details
+				setTimeout(saveEduDetails, 1000);
+			}
+			function saveEduDetails() {
+				// code of edu details
+				setTimeout(saveWorkExp, 1000);
+			}
+			function saveWorkExp() {
+				// code of work exp
+			}
+
+			function callBackAsanErrorFunction(error, data) {
+				if (error) {
+					console.error(error);
+				} else {
+					console.log(data);
+				}
+			}
+			function fetchUser() {
+				return { id: 1, name: "Devanshu" };
+			}
+
+			function displayUser(errorCallBackFunction) {
+				setTimeout(() => {
+					const userDetails = fetchUser();
+
+					if (userDetails) {
+						errorCallBackFunction(null, userDetails);
+					} else {
+						errorCallBackFunction("User Not Found", null);
+					}
+				}, 1000);
+			}
+			// displayUser(callBackAsanErrorFunction);
+
+            
+             
+		</script>
+	</body>
+</html>
