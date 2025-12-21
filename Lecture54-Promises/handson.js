@@ -156,7 +156,7 @@ function fetchBalance(user) {
 function makePayment(user) {
 	user.balance = user.balance - 100;
 	console.log(user);
-    console.log("Payment Done")
+	console.log("Payment Done");
 }
 
 fetchUser(7)
@@ -165,3 +165,59 @@ fetchUser(7)
 	.catch((err) => {
 		console.log(err);
 	});
+
+// promise.all
+// Promise.all returns an array of resolved values if all succeed, else returns the first error.
+
+// it always take promises as a paramter not function
+
+// let promise1 = new Promise((resolve, reject) => {
+// 	resolve("Promise 1");
+// });
+
+// let promise2 = new Promise((resolve, reject) => {
+// 	resolve("Promise 2");
+// });
+
+// let promise3 = new Promise((resolve, reject) => {
+// 	resolve("Promise 3");
+// });
+
+// Promise.all([promise1, promise2, promise3]).then((message) => {
+// 	console.log(message);
+// }).catch((err)=>{
+// 	console.log(err)
+// });
+
+// promise.race
+// return a promise
+let promise1 = new Promise((resolve, reject) => {
+    setTimeout(()=>{
+        
+	resolve("Promise 1");
+    },2000)
+});
+
+let promise2 = new Promise((resolve, reject) => {
+setTimeout(()=>{
+        
+	resolve("Promise 2");
+    },1000)
+});
+
+let promise3 = new Promise((resolve, reject) => {
+	setTimeout(()=>{
+        
+	resolve("Promise 3");
+    },500)
+});
+
+Promise.race([promise1,promise2,promise3]).then((mess)=>{
+    console.log(mess)
+}).catch((err)=>{
+    console.log(err)
+})
+
+
+
+// promise.any->return a promise which ever resolve first
