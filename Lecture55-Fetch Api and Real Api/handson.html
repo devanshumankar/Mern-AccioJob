@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			*,
+			*::before,
+			*::after {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			.cards {
+				min-height: 100vh;
+				width: 100vw;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 40px;
+				justify-content: center;
+			}
+			.card {
+				height: 600px;
+				width: 500px;
+				border: solid 1px rebeccapurple;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				border-radius: 20px;
+				padding: 20px;
+			}
+			img {
+				height: 200px;
+				width: 200px;
+				border: solid 1px black;
+				align-self: center;
+				border-radius: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>Loading Data...</p>
+		<div class="cards">
+			<!-- <div class="card">
+				<h1>Title</h1>
+				<p>Brand</p>
+				<p>Lorem ipsum dolor sit amet.</p>
+				<p>Price</p>
+				<img src="" alt="loading image" />
+			</div> -->
+		</div>
+
+		<script>
+			let products = [];
+			const pElement = document.querySelector("p");
+			const cards = document.querySelector(".cards");
+			function fetchProducts() {
+				fetch(`https://dummyjson.com/products`)
+					.then((res) => res.json())
+					.then((res) => {
+						products = res.products;
+					})
+					.catch((err) => {
+						pElement.textContent = "Failed to load data";
+						console.log(err);
+					})
+					.finally(() => {
+						if (products.length > 0) {
+							pElement.style.display = "none";
+							for (let ele of products) {
+								const card = document.createElement("div");
+								card.classList.add("card");
+								card.innerHTML = `<h1>Title: ${ele.title}</h1>
+								                  <p>Brand:${ele.brand}</p>
+								                  <p>Description:${ele.description}</p>
+								                  <p>Price:${ele.price}</p>
+								                  <img src="${ele.images[0]}" alt="loading image" />`;
+								cards.appendChild(card);
+							}
+						}
+					});
+			}
+			fetchProducts();
+		</script>
+	</body>
+</html>
