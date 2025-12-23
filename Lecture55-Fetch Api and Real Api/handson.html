@@ -60,6 +60,16 @@
 					.then((res) => res.json())
 					.then((res) => {
 						products = res.products;
+						for (let ele of products) {
+							const card = document.createElement("div");
+							card.classList.add("card");
+							card.innerHTML = `<h1>Title: ${ele.title}</h1>
+								                  <p>Brand:${ele.brand}</p>
+								                  <p>Description:${ele.description}</p>
+								                  <p>Price:${ele.price}</p>
+								                  <img src="${ele.images[0]}" alt="loading image" />`;
+							cards.appendChild(card);
+						}
 					})
 					.catch((err) => {
 						pElement.textContent = "Failed to load data";
@@ -68,16 +78,6 @@
 					.finally(() => {
 						if (products.length > 0) {
 							pElement.style.display = "none";
-							for (let ele of products) {
-								const card = document.createElement("div");
-								card.classList.add("card");
-								card.innerHTML = `<h1>Title: ${ele.title}</h1>
-								                  <p>Brand:${ele.brand}</p>
-								                  <p>Description:${ele.description}</p>
-								                  <p>Price:${ele.price}</p>
-								                  <img src="${ele.images[0]}" alt="loading image" />`;
-								cards.appendChild(card);
-							}
 						}
 					});
 			}
