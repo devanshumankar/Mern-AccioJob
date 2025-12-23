@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// promise methods
+			//1. Promise.all()
+			// 2.Promise.any()
+			// 3.Promise.race()
+			// 4.Promise.allSettled()
+
+			// 1.Promise.all([p1,p2,p3])
+			// if all proises are resolve then all are get resolve if any one fails then it will rejected
+			// takes array of promises as parameter
+			// order also matters of promises
+			// ex:dashboard,if we are collecting data from multiple apis then if any fails then it should not show the dashbaod
+			// ex:hackathon:3 user and all must be already register then only they can register for hackathon
+
+			// 2.Promise.race([p1,p2,p3])
+			// takes array of promises and return promise
+			// race between the promise if any of the promise get resolve or reject first will return that promise
+			// usecase:timeout if i get result or it will fail the api after 5 sec
+			// collecting data from multiple server across mutilple country
+			// cdn usecase
+
+			// 3.Promise.any([p1,p2,p3])
+			// takes array of promises and return a promise
+			// first fulfilled(resolve)
+			// if all reject catch block will have aggregate result of reject response in array form
+			// ex:collecting data from multiple server across mutilple country
+			// ex:trying multiple approaches form a problem whichever works first then that will be return
+
+			// 4.Promise.allSettled([p1,p2,p3])
+			// takes array of promises and return a promise
+			// it does not have catch block
+			// if fulfilled the we get value
+			// if rejected then we get reason
+			// send  emails to all users and we need to know which user has get and which has not
+			// return the response of all promises in array form
+
+			function p1() {
+				return new Promise((resolve, reject) => {
+					fetch("https://fakestoreapi.com/products/1")
+						.then((res) => {
+							if (!res.ok) reject("Failed to call api 1");
+							return res.json();
+						})
+						.then((data) => resolve(data))
+						.catch((err) => reject(err));
+				});
+			}
+			function p2() {
+				return new Promise((resolve, reject) => {
+					fetch("https://dummyjson.com/products/1")
+						.then((res) => {
+							if (!res.ok) reject("Failed to call api 1");
+							return res.json();
+						})
+						.then((data) => resolve(data))
+						.catch((err) => reject(err));
+				});
+			}
+			// Promise.all([p1(), p2()])
+			// 	.then((res) => console.log("all", res))
+			// 	.catch((err) => console.log(err));
+
+			// function p3() {
+			// 	return fetch("https://jsonplaceholder.typicode.com/todos/1");
+			// }
+
+			// const p4 = Promise.reject("p4 reject");
+			// Promise.race([p1(), p2(), p3(), p4])
+			// 	.then((res) => console.log("race", res))
+			// 	.catch((err) => {
+			// 		console.log("race", err);
+			// 	});
+			// Promise.any([p1(), p2(), p3(), p4])
+			// 	.then((res) => console.log("any", res))
+			// 	.catch((err) => console.log("any", err));
+			// const p5 = Promise.reject("p5 reject");
+			// Promise.any([p4, p5])
+			// 	.then((res) => console.log(res))
+			// 	.catch((err) => console.log(err.errors));
+
+			// const p6 = Promise.reject("p6 reject");
+			// const p7 = Promise.reject("p7 Reject");
+			// const p8 = new Promise((resolve) => {
+			// 	setTimeout(() => {
+			// 		resolve("p8 resolve");
+			// 	}, 4000);
+			// });
+			// const fulfilled = [];
+			// const rejected = [];
+			// Promise.allSettled([p1(), p2(), p3(), p4, p5, p6, p7, p8])
+			// 	.then((res) => {
+			// 		console.log(res);
+			// 		res.forEach((ele) => {
+			// 			if (ele.status == "fulfilled") {
+			// 				fulfilled.push(ele.value);
+			// 			} else {
+			// 				rejected.push(ele.reason);
+			// 			}
+			// 		});
+			// 	})
+			// 	.finally(() => {
+			// 		console.log(rejected, fulfilled);
+			// 	});
+
+			function fetchFromAsiaServer() {
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						resolve("resolve after 4sec");
+					}, 4000);
+				});
+			}
+			function fetchFromUsServer() {
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						resolve("resolve after 2sec");
+					}, 2000);
+				});
+			}
+			function fetchFromEusServer() {
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						resolve("resolve after 1sec");
+					}, 1000);
+				});
+			}
+			function fetchFromFastestServer() {
+				return Promise.any([
+					fetchFromAsiaServer(),
+					fetchFromEusServer(),
+					fetchFromUsServer(),
+				]);
+			}
+			// fetchFromFastestServer()
+			// 	.then((res) => {
+			// 		console.log(res);
+			// 	})
+			// 	.catch((err) => console.log(err.errors));
+			function timeOut(ms) {
+				return new Promise((_, reject) => {
+					setTimeout(() => {
+						reject("api reject after " + ms + " ms");
+					});
+				});
+			}
+			function fetchPosts() {
+				return fetch("https://jsonplaceholder.typicode.com/posts?_delay=2000");
+			}
+			function fetchPostWithTimeout(ms) {
+				return Promise.race([fetchPosts(), timeOut(ms)]);
+			}
+			fetchPostWithTimeout(10)
+				.then((res) => console.log(res))
+				.catch((err) => console.log(err));
+		</script>
+	</body>
+</html>

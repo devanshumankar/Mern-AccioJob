@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			*,
+			*::before,
+			*::after {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			.cards {
+				height: 100vw;
+				width: 100vw;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 40px;
+				justify-content: center;
+			}
+			.card {
+				height: 600px;
+				width: 500px;
+				border: solid 1px rebeccapurple;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				border-radius: 20px;
+				padding: 20px;
+			}
+			img {
+				height: 200px;
+				width: 200px;
+				border: solid 1px black;
+				align-self: center;
+				border-radius: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cards">
+			<!-- <div class="card">
+				<h1>Title</h1>
+				<p>Brand</p>
+				<p>Lorem ipsum dolor sit amet.</p>
+				<p>Price</p>
+				<img src="" alt="loading image" />
+			</div> -->
+		</div>
+
+		<script>
+			const cards = document.querySelector(".cards");
+			function fetchProducts(id) {
+				return fetch(`https://dummyjson.com/products/${id}`)
+					.then((res) => res.json())
+					.then((res) => {
+						if (!res.title) {
+							throw new Error(res.message);
+						}
+						const card = document.createElement("div");
+						card.classList.add("card");
+						card.innerHTML = `<h1>Title: ${res.title}</h1>
+				                          <p>Brand:${res.brand}</p>
+				                          <p>Description:${res.description}</p>
+				                          <p>Price:${res.price}</p>
+				                          <img src="${res.images[0]}" alt="loading image" />`;
+						cards.appendChild(card);
+					})
+					.catch((err) => console.log(err));
+			}
+			fetchProducts(1)
+				.then(() => fetchProducts(2))
+				.then(() => fetchProducts(3))
+				.catch((err) => console.log(err));
+		</script>
+	</body>
+</html>
