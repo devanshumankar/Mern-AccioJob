@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<input type="text" placeholder="enter data" />
+	</body>
+	<script>
+		const input = document.querySelector("input");
+		function autoSave() {
+			let timer = null;
+			return function (value) {
+				clearTimeout(timer);
+				timer = setTimeout(() => {
+					localStorage.setItem("name", `${value}`);
+				}, 2000);
+			};
+		}
+
+		const autoSaving = autoSave();
+		input.addEventListener("input", (e) => {
+			autoSaving(e.target.value);
+		});
+		input.value = localStorage.getItem("name");
+	</script>
+</html>
