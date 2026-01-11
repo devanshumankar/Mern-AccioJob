@@ -1,0 +1,123 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	gap: 30px;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+}
+form {
+	height: 80%;
+	width: 50%;
+	border: solid 1px black;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	border-radius: 20px;
+	box-shadow: 3px 3px 20px rebeccapurple;
+	background-color: rgb(23, 22, 22);
+	color: beige;
+}
+form > div {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	gap: 10px;
+}
+form div > input {
+	height: 30px;
+	width: 100%;
+	border-radius: 10px;
+	padding: 20px;
+	outline: none;
+	border: solid 2px rebeccapurple;
+	box-shadow: 3px 3px 20px blue;
+}
+form > p {
+	color: red;
+}
+button {
+	height: 40px;
+	width: 150px;
+	border-radius: 10px;
+	background-color: rgb(130, 130, 253);
+	color: white;
+	cursor: pointer;
+}
+
+.dashboard {
+	height: 50%;
+	width: 50%;
+	color: black;
+	border: solid 2px rebeccapurple;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 20px;
+	box-shadow: 3px 3px 20px blue;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#pause {
+	width: 80%;
+	background-color: red;
+}
+#resume {
+	width: 80%;
+	background-color: green;
+}
+
+#total-time {
+	color: red;
+}
+#current-phase-time {
+	color: green;
+}
+
+.quotes {
+	width: 60%;
+	height: 20%;
+	padding: 10px;
+	color: blue;
+	font-size: larger;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 3px 3px 20px gray;
+	border-radius: 20px;
+}
+.history-container {
+	height: 40%;
+	width: 50%;
+}
+table {
+	box-shadow: 3px 3px 20px gray;
+	border-collapse: collapse;
+	width: 100%;
+	height: 100%;
+	color: black;
+}
+
+tr {
+	height: 30px;
+	font-size: large;
+	text-align: center;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#show-history {
+	margin-top: 20px;
+	width: 50%;
+	background-color: brown;
+	border: solid 2px yellow;
+}

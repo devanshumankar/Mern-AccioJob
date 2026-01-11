@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<form id="session-form">
+			<h1>Study Session Form</h1>
+			<div class="session-name-container">
+				<label for="session-name">Session Name</label>
+				<input type="text" placeholder="enter session name" id="session-name" />
+			</div>
+			<p id="session-name-error"></p>
+
+			<div class="duration-container">
+				<label for="duration">Study Duration</label>
+				<input type="number" placeholder="enter duration" id="duration" />
+			</div>
+			<p id="duration-error"></p>
+
+			<div class="break-container">
+				<label for="breaks">Break duration</label>
+				<input type="number" placeholder="enter no of breaks" id="breaks" />
+			</div>
+			<p id="break-error"></p>
+
+			<div class="cycle-container">
+				<label for="cycle">No of Cycles</label>
+				<input type="number" placeholder="enter no of cycles" id="cycle" />
+			</div>
+			<p id="cycle-error"></p>
+
+			<button disabled>Start Session</button>
+		</form>
+
+		<div class="dashboard">
+			<h2>Current Phase : <span id="current-phase"></span></h2>
+			<h2>Total Time: <span id="total-time"></span></h2>
+			<h2>Current Phase Time : <span id="current-phase-time"></span></h2>
+			<h2>Cycle : <span id="dashboard-cycle"></span></h2>
+			<button id="pause">Pause</button>
+			<button id="resume">Resume</button>
+		</div>
+		<div class="quotes">
+			<p id="loading">Loading ...</p>
+		</div>
+		<div class="history-container">
+			<table border="1" id="history">
+				<thead>
+					<tr>
+						<th>Session Name</th>
+						<th>Total Study</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+		<button id="show-history">Show History</button>
+		<script src="script.js"></script>
+	</body>
+</html>
