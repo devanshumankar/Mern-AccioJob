@@ -338,3 +338,9 @@ document.addEventListener("visibilitychange", () => {
 		autoPause("Tab Switch / browser Minimize");
 	}
 });
+
+window.addEventListener("resize", () => {
+	autoPause("Resize window");
+	// console.log("resize");
+	
+});
