@@ -58,13 +58,12 @@ button {
 	height: 50%;
 	width: 50%;
 	color: black;
-	border: solid 2px rebeccapurple;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 	border-radius: 20px;
-	box-shadow: 3px 3px 20px blue;
+	box-shadow: 3px 3px 20px gray;
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
