@@ -1,0 +1,19 @@
+.light {
+	background-color: white;
+	height: 200px;
+	width: 200px;
+	color: black;
+	border: solid 1px black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.dark {
+	background-color: black;
+	height: 200px;
+	width: 200px;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

@@ -1,0 +1,15 @@
+.profile-card {
+	height: 400px;
+	width: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px;
+	box-shadow: 4px 4px 20px rgb(160, 160, 160);
+}
+img {
+	height: 60%;
+	width: 60%;
+	border-radius: 50%;
+}

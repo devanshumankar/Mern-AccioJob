@@ -1,0 +1,21 @@
+.product-card {
+	box-shadow: 4px 4px 20px gray;
+	height: 500px;
+	width: 400px;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+h2 {
+	color: blueviolet;
+}
+img {
+	height: 200px;
+	width: 200px;
+}
+.btn {
+	background-color: rgb(131, 207, 228);
+	color: white;
+}
