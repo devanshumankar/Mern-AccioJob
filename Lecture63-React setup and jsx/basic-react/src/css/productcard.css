@@ -19,3 +19,27 @@ img {
 	background-color: rgb(131, 207, 228);
 	color: white;
 }
+.light {
+	background-color: white;
+	color: black;
+	box-shadow: 4px 4px 20px gray;
+	height: 500px;
+	width: 400px;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.dark {
+	background-color: black;
+	color: white;
+	box-shadow: 4px 4px 20px gray;
+	height: 500px;
+	width: 400px;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
