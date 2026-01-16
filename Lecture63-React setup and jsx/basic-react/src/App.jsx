@@ -20,6 +20,13 @@ function App() {
 				description="Apple iPhone 15 with A16 Bionic chip"
 				theme="dark"
 			/>
+			<ProductCard
+				title="iPhone 15"
+				price={79999}
+				image="https://m.media-amazon.com/images/I/71d7rfSl0wL._SX679_.jpg"
+				description="Apple iPhone 15 with A16 Bionic chip"
+				theme="light"
+			/>
 			<Layout></Layout>
 		</>
 	);

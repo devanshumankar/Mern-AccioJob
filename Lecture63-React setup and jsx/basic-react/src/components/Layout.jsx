@@ -42,7 +42,9 @@ const Layout = () => {
 					<About></About>
 				) : contact ? (
 					<Contact></Contact>
-				) : null}
+				) : (
+					<p>Please Click the buttons</p>
+				)}
 			</div>
 		</div>
 	);
