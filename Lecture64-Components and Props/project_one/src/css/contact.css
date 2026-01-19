@@ -1,0 +1,9 @@
+.contact {
+	height: 200px;
+	width: 400px;
+	box-shadow: 3px 3px 20px gray;
+	border-radius: 15px;
+}
+.contact p {
+	text-decoration: underline rebeccapurple;
+}
