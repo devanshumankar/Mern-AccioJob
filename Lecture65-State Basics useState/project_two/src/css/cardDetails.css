@@ -1,0 +1,68 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+form {
+	margin-top: 10px;
+	height: 350px;
+	width: 400px;
+	box-shadow: 4px 4px 20px gray;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 20px;
+}
+
+.name-container,
+.age-container {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	width: 80%;
+}
+label {
+	text-align: left;
+}
+.name-container input,
+.age-container input {
+	height: 40px;
+	width: 100%;
+	border-radius: 10px;
+	outline: none;
+	padding: 10px;
+}
+
+button {
+	width: 50%;
+	background-color: rgba(42, 42, 241, 0.527);
+	color: white;
+}
+
+.gender-container {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.user-details {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 20px;
+	margin-top: 20px;
+	height: 40px;
+	box-shadow: 3px 3px 20px gray;
+	border-radius: 20px;
+}
+.username {
+	min-width: 40%;
+}
+.userage {
+	min-width: 20%;
+}
+.usergender {
+	min-width: 20%;
+}
