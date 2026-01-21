@@ -1,0 +1,12 @@
+.option {
+	height: 50px;
+	border: solid 2px rebeccapurple;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.option:active {
+	background-color: rgb(148, 232, 148);
+}
