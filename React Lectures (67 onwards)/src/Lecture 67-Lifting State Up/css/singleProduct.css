@@ -1,0 +1,11 @@
+.single-product {
+	box-shadow: 3px 3px 20px gray;
+	display: flex;
+	height: 200px;
+	width: 300px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px;
+	padding: 10px;
+}

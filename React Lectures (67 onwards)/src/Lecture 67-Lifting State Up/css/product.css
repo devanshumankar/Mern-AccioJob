@@ -1,0 +1,36 @@
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 400px;
+	width: 650px;
+	box-shadow: 3px 3px 20px gray;
+	border-radius: 20px;
+}
+
+form div {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	width: 90%;
+}
+form div > label {
+	text-align: left;
+}
+form input {
+	height: 30px;
+	border-radius: 10px;
+	padding-left: 10px;
+}
+
+form button {
+	width: 100px;
+	background-color: aqua;
+}
+
+.all-products {
+	display: flex;
+	margin-top: 20px;
+	gap: 20px;
+}

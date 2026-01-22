@@ -1,0 +1,44 @@
+.container {
+	height: 80vh;
+	width: 90vw;
+	margin-left: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	border: solid 2px red;
+}
+.parent1 {
+	height: 30%;
+	width: 90%;
+	border: solid 1px black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+.parent2 {
+	height: 60%;
+	width: 90%;
+	border: solid 2px rebeccapurple;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 40px;
+}
+.parent1 button {
+	height: 70px;
+	width: 200px;
+	background-color: blue;
+	color: wheat;
+}
+.data {
+	height: 100px;
+	width: 100px;
+	background-color: red;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
