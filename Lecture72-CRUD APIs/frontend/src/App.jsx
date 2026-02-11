@@ -8,6 +8,10 @@ function App() {
 	const SERVER_BASE_URL = "http://localhost:3000/";
 	const [books, setBooks] = useState([]);
 	const [bookId, setBookId] = useState(0);
+	const [email, setEmail] = useState("");
+
+	const [currentBook, setCurrentBook] = useState("");
+	const [showEmail, setShowEmail] = useState(false);
 	const [singleBook, setSingleBook] = useState([]);
 	async function getBooks() {
 		const res = await axios.get(`${SERVER_BASE_URL}books`);
@@ -20,10 +24,21 @@ function App() {
 	}
 
 	async function handleView(id) {
-		const res = await axios.put(`${SERVER_BASE_URL}book/${id}`, {
-			status: "read",
-		});
-		console.log(res);
+		setCurrentBook(id);
+		setShowEmail(!showEmail);
+		const book = books.filter((ele) => ele.id == id);
+
+		if (!book[0].hasOwnProperty(email)) {
+			const res = await axios.patch(`${SERVER_BASE_URL}book/${id}`, {
+				email,
+			});
+		} else {
+			const res = await axios.put(`${SERVER_BASE_URL}book/${id}`, {
+				status: "read",
+				email,
+			});
+		}
+		setEmail("");
 		getBooks();
 	}
 
@@ -41,8 +56,20 @@ function App() {
 							<div key={ele.id} className="book-container">
 								<h2>Title : {ele.title}</h2>
 								<p>Desc : {ele.description}</p>
+								{ele.readers?.length && (
+									<p>Users : {ele.readers.join(" ")}</p>
+								)}
 								<p>Status: {ele.status}</p>
 								<p>Author: {ele.author}</p>
+
+								{currentBook == ele.id && (
+									<input
+										type="email"
+										placeholder="enter email"
+										value={email}
+										onChange={(e) => setEmail(e.target.value)}
+									></input>
+								)}
 								<button onClick={() => handleView(ele.id)}>View</button>
 								<button onClick={() => handleDelete(ele.id)}>
 									Delete

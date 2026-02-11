@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 const PORT = 3000;
-// url shortner
+
 let books = [
 	{
 		id: 1,
@@ -56,9 +56,14 @@ app.get("/book/:id", (req, res) => {
 
 app.put("/book/:id", (req, res) => {
 	const { id } = req.params;
-	const { status } = req.body;
+	const { status, email } = req.body;
 	const book = books.find((ele) => ele.id == id);
 	console.log(book);
+	if (book.readers) {
+		book.readers.push(email);
+	} else {
+		book.readers[email];
+	}
 	book.status = status;
 	res.send("Updated Successfully");
 });
@@ -89,6 +94,19 @@ app.delete("/book/:id", (req, res) => {
 	books = books.filter((ele) => ele.id != id);
 	res.send("Deleted Successfully");
 });
+
+app.patch("/book/:id", (req, res) => {
+	const { id } = req.params;
+	const { email } = req.body;
+	const book = books.find((ele) => ele.id == id);
+	if (book.readers) {
+		book.readers.push(email);
+	} else {
+		book.readers = [email];
+	}
+	res.send("Success patch");
+});
+
 app.listen(PORT, () => {
 	console.log("running on", PORT);
 });
