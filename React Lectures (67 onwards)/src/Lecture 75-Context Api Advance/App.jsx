@@ -8,9 +8,9 @@ import Home from "./components/Home";
 import Layout from "./components/Layout";
 import Login from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Products from "./components/Product";
 
 const App = () => {
-	
 	const router = createBrowserRouter([
 		{
 			path: "/",
@@ -23,7 +23,7 @@ const App = () => {
 				{
 					path: "home",
 					element: (
-						<ProtectedRoute >
+						<ProtectedRoute>
 							<Home></Home>
 						</ProtectedRoute>
 					),
@@ -31,6 +31,10 @@ const App = () => {
 				{
 					path: "login",
 					element: <Login></Login>,
+				},
+				{
+					path: "product",
+					element: <Products></Products>,
 				},
 			],
 		},

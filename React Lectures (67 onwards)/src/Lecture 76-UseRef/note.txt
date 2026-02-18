@@ -1,0 +1,9 @@
+1.call by value->for primitive data
+primitive:number,string,boolean,null,undefined,NaN
+they are passed by the value
+2.call by reference->
+for non-primitive data:array,object
+for ex:a=[10,20,30]
+let b=a
+that means both a and b points to same reference in the memory
+if changes done in any of the array will affect both
